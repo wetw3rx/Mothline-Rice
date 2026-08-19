@@ -7,3 +7,20 @@
 .idea/
 .vscode/
 screenshots/private/
+
+# Backups and encrypted archives
+Mothline-Backup/
+*.age
+*.tar.gz
+SHA256SUMS*
+
+# Credentials, account state, and personal data
+rclone.conf
+.config/rclone/
+clawsrc
+accountrc
+passwordstorerc
+config/noctalia/calendar.toml
+
+# Machine-generated GUI state
+*.lock

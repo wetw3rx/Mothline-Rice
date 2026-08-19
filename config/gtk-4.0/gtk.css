@@ -1,0 +1,24 @@
+@import url("../gtk-3.0/noctalia.css");
+
+/* Mothline selections for GTK 4 and Nautilus */
+row:selected,
+.navigation-sidebar row:selected,
+columnview row:selected,
+listview row:selected,
+gridview child:selected {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+row:selected label,
+.navigation-sidebar row:selected label,
+columnview row:selected label,
+listview row:selected label,
+gridview child:selected label {
+    color: @accent_fg_color;
+}
+
+selection {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}

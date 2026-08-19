@@ -10,6 +10,9 @@ teal highlights, restrained glass surfaces, and a recurring moth emblem.
 
 - Niri 26.04 layout, animation, rules, keybinds, blur, and gradient borders
 - Noctalia v5 palette, bar, launcher, notifications, and lock screen
+- GTK 3/4 styling for Thunar, Nautilus, and legacy GTK applications
+- Qt6ct plus Noctalia KColorScheme integration for Qt 6/KDE applications
+- Tela Red Dark system icons and optional Papirus-Dark Claws Mail icons
 - Kitty theme plus a dedicated Fastfetch popup profile
 - Fastfetch layout with NVIDIA, network, and optional PIA status
 - Responsive start page with military time and Open-Meteo weather
@@ -34,11 +37,19 @@ Install Noctalia v5 using its current official installation instructions.
 The configuration expects `noctalia msg ...` IPC commands, not legacy
 `qs -c noctalia ipc call ...` commands.
 
-Recommended extras:
+Recommended official-repository extras:
 
 ```zsh
 sudo pacman -S --needed ttf-jetbrains-mono-nerd starship fzf \
-  zsh-autosuggestions zsh-syntax-highlighting kdeconnect nautilus
+  zsh-autosuggestions zsh-syntax-highlighting kdeconnect nautilus \
+  thunar breeze age rclone exfatprogs
+```
+
+Recommended AUR packages:
+
+```zsh
+paru -S adw-gtk-theme nwg-look qt6ct-kde tela-icon-theme \
+  papirus-claws-mail-theme-git
 ```
 
 ## Install
@@ -82,6 +93,22 @@ It runs `niri validate` after installation when Niri is available.
    ```text
    file:///home/YOUR-USER/.local/share/startpage/start.html
    ```
+
+6. In Noctalia Settings -> Templates, enable GTK 3, GTK 4, and KColorScheme,
+   then run `noctalia msg templates-apply`.
+7. Open `qt6ct`, select Breeze and the `noctalia` KColorScheme, then log out
+   and back in so `QT_QPA_PLATFORMTHEME=qt6ct` takes effect.
+8. Use `Tela-red-dark` as the GTK icon theme. Claws Mail can optionally use
+   Papirus-Dark under Configuration -> Preferences -> Display -> Themes.
+
+## Backup
+
+Use a 3-2-1 strategy: one local archive, one verified offline USB copy, and one
+encrypted off-site copy. Encrypt archives with `age`, keep the passphrase in a
+password manager, and verify each copy. Never commit archives, passphrases,
+rclone configuration, browser profiles, or private mail configuration.
+
+The installer's backup is for quick rollback, not off-device protection.
 
 ## Zsh
 

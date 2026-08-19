@@ -61,11 +61,11 @@ capsule_border = "outline"
 [widget.clock]
 font_family = "JetBrainsMono Nerd Font"
 font_weight = 700
-color = "on_primary"
-icon_color = "on_primary"
+color = "on_surface"
+icon_color = "on_surface"
 capsule = true
-capsule_fill = "primary"
-capsule_foreground = "on_primary"
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
 capsule_border = "primary"
 capsule_opacity = 0.95
 

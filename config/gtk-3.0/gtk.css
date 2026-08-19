@@ -1,0 +1,49 @@
+@import url("noctalia.css");
+
+/* Mothline styling for legacy GTK 3 applications */
+window,
+dialog,
+.background {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+}
+
+menubar,
+toolbar,
+headerbar {
+    background-color: @headerbar_bg_color;
+    color: @headerbar_fg_color;
+}
+
+treeview.view,
+textview text,
+entry {
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+}
+
+treeview.view:selected,
+treeview.view:selected:focus {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+treeview.view:hover {
+    background-color: #135e5b;
+    color: #ffffff;
+}
+
+paned separator {
+    background-color: #730f1c;
+}
+
+button {
+    background-color: @card_bg_color;
+    color: @card_fg_color;
+    border-color: @accent_color;
+}
+
+button:hover {
+    background-color: #135e5b;
+    color: #ffffff;
+}

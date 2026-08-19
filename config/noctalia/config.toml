@@ -1,7 +1,30 @@
+[bar]
+order = ["default"]
+
 [bar.default]
 position = "top"
-# Add your desired widgets here, for example:
-end = ["clock", "sysmon"]
+
+start = [
+    "launcher",
+    "workspaces",
+    "active_window"
+]
+
+center = [
+    "media"
+]
+
+end = [
+    "tray",
+    "network",
+    "volume",
+    "bluetooth",
+    "sysmon",
+    "notifications",
+    "clock",
+    "control-center",
+    "session"
+]
 # =====================================================================
 # NOCTALIA V5 TEMPLATE CONFIGURATION
 # Files in ~/.config/noctalia/ are read alphabetically and merged.
