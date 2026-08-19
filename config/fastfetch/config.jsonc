@@ -1,0 +1,104 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "kitty",
+    "source": "~/.config/fastfetch/moth.png",
+    "width": 30,
+    "height": 22,
+    "preserveAspectRatio": true,
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 3
+    }
+  },
+
+  "display": {
+    "pipe": false,
+    "separator": "  •  ",
+    "disableLinewrap": true,
+    "hideCursor": true,
+    "color": {
+      "keys": "bright_cyan",
+      "title": "bright_cyan",
+      "output": "bright_white",
+      "separator": "bright_red"
+    }
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "format": "{#bright_cyan}󰣇  {user-name}{#bright_red}@{#bright_cyan}{host-name}{#}"
+    },
+    {
+      "type": "custom",
+      "format": "{#bright_red}╭─{#}{#bright_cyan} SYSTEM {#}{#bright_red}───────────────────────────────────────────────────────────────────────────╮{#}"
+    },
+    { "type": "os",       "key": "󰣇  OS          " },
+    { "type": "kernel",   "key": "󰌽  Kernel      " },
+    { "type": "uptime",   "key": "󰅐  Uptime      " },
+    { "type": "packages", "key": "󰏖  Packages    " },
+    { "type": "shell",    "key": "󰆍  Shell       " },
+
+    {
+      "type": "custom",
+      "format": "{#bright_red}├─{#}{#bright_cyan} DESKTOP {#}{#bright_red}──────────────────────────────────────────────────────────────────────────┤{#}"
+    },
+    { "type": "lm",           "key": "󰍂  Login       " },
+    { "type": "wm",           "key": "󰖲  Compositor  " },
+    { "type": "terminal",     "key": "󰆍  Terminal    " },
+    { "type": "terminalfont", "key": "󰛖  Term Font   " },
+
+    {
+      "type": "custom",
+      "format": "{#bright_red}├─{#}{#bright_cyan} HARDWARE {#}{#bright_red}─────────────────────────────────────────────────────────────────────────┤{#}"
+    },
+    {
+      "type": "cpu",
+      "key": "󰻠  CPU         ",
+      "showPeCoreCount": false,
+      "temp": true
+    },
+    {
+      "type": "command",
+      "key": "󰢮  NVIDIA      ",
+      "shell": "/bin/sh",
+      "param": "-c",
+      "text": "nvidia-smi --query-gpu=name,temperature.gpu,utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits 2>/dev/null | awk -F', ' '{printf \"%s • %s°C • %s%% • %s/%s MiB\", $1, $2, $3, $4, $5}'"
+    },
+    { "type": "memory", "key": "󰍛  Memory      " },
+    {
+      "type": "disk",
+      "key": "󰋊  Root        ",
+      "folders": ["/"]
+    },
+
+    {
+      "type": "custom",
+      "format": "{#bright_red}├─{#}{#bright_cyan} NETWORK {#}{#bright_red}──────────────────────────────────────────────────────────────────────────┤{#}"
+    },
+    {
+      "type": "command",
+      "key": "󰩟  LAN         ",
+      "shell": "/bin/sh",
+      "param": "-c",
+      "text": "ip -4 -o addr show up scope global 2>/dev/null | awk '$2 !~ /^(lo|tun|tap|wg|nordlynx)/ {sub(/\\/.*/, \"\", $4); printf \"%s (%s)\", $4, $2; exit}'"
+    },
+    { "type": "publicip", "key": "󰖟  WAN         " },
+    {
+      "type": "command",
+      "key": "󰦝  PIA VPN     ",
+      "shell": "/bin/sh",
+      "param": "-c",
+      "text": "if command -v piactl >/dev/null 2>&1; then state=$(piactl get connectionstate 2>/dev/null); if [ \"$state\" = \"Connected\" ]; then region=$(piactl get region 2>/dev/null); vpnip=$(piactl get vpnip 2>/dev/null); case \"$region\" in *\"$vpnip\"*) printf \"Connected • %s\" \"$region\" ;; *) printf \"Connected • %s • %s\" \"$region\" \"$vpnip\" ;; esac; else printf \"%s\" \"${state:-Disconnected}\"; fi; else printf \"PIA app not found\"; fi"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#bright_red}╰────────────────────────────────────────────────────────────────────────────────────╯{#}"
+    },
+    "break"
+  ]
+}

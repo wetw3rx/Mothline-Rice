@@ -1,0 +1,49 @@
+# Zsh history
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
+
+# Oh My Zsh without an Oh My Zsh or Powerlevel10k prompt theme.
+export ZSH="/usr/share/oh-my-zsh"
+ZSH_THEME=""
+plugins=(git fzf extract)
+source "$ZSH/oh-my-zsh.sh"
+
+# CachyOS conveniences retained without loading cachyos-config.zsh, which
+# unconditionally loads Powerlevel10k and conflicts with Starship.
+alias update="sudo pacman -Syu"
+alias rmpkg="sudo pacman -Rsn"
+alias cleanch="sudo pacman -Scc"
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias c="clear"
+alias please="sudo"
+alias jctl="journalctl -p 3 -xb"
+
+cleanup() {
+  sudo pacman -Rsn $(pacman -Qtdq)
+}
+
+# Fish-like history search and suggestions.
+[[ -r /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r /usr/share/doc/pkgfile/command-not-found.zsh ]] &&
+  source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# Display Fastfetch once when opening a new interactive terminal.
+if [[ -o interactive && -z "${FASTFETCH_SHOWN:-}" ]]; then
+  export FASTFETCH_SHOWN=1
+
+  if command -v fastfetch >/dev/null 2>&1; then
+    fastfetch
+  fi
+fi
+
+# Starship owns the prompt.
+eval "$(starship init zsh)"
+
+# Syntax highlighting must remain the final sourced plugin.
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

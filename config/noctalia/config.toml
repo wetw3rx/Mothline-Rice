@@ -1,0 +1,25 @@
+[bar.default]
+position = "top"
+# Add your desired widgets here, for example:
+end = ["clock", "sysmon"]
+# =====================================================================
+# NOCTALIA V5 TEMPLATE CONFIGURATION
+# Files in ~/.config/noctalia/ are read alphabetically and merged.
+# =====================================================================
+
+[storage]
+# Where to pull system credentials/secrets
+key_source = "secret-service"  # Options: "secret-service" or "file"
+key_file = ""                  # Required only if key_source = "file"
+
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+
+# Interface rendering and borders
+corner_radius_scale = 1.0      # 0 = sharp corners, 1 = default, 2 = extra rounded
+button_borders = true          # Outlines around taskbar and menu buttons
+input_borders = true           # Outlines around text fields and inputs
+popup_borders = true           # Outlines around notification and menu popups
+card_borders = true            # Outlines around section cards within widgets
+popup_shadows = true           # Dropshadows beneath layer-shell panels
+blur = false

@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOTHLINE // START</title>
+  <style>
+    :root {
+      --bg: #030707;
+      --panel: rgba(4, 14, 14, .82);
+      --cyan: #19d7c1;
+      --cyan-soft: #87eee3;
+      --red: #ff2638;
+      --white: #f3f5f4;
+      --muted: #85908e;
+      --line: rgba(255, 38, 56, .72);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 10%, rgba(25, 215, 193, .06), transparent 32rem),
+        linear-gradient(rgba(255, 38, 56, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(25, 215, 193, .02) 1px, transparent 1px),
+        var(--bg);
+      background-size: auto, 42px 42px, 42px 42px, auto;
+      font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+      letter-spacing: .02em;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px);
+      mix-blend-mode: screen;
+    }
+
+    .shell {
+      width: min(1380px, calc(100% - 40px));
+      min-height: 100vh;
+      margin: auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 390px) 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: center;
+      padding: 44px 0;
+    }
+
+    .identity { text-align: center; }
+
+    .moth-wrap {
+      position: relative;
+      margin: auto;
+      width: min(100%, 390px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .moth-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border: 1px solid rgba(25, 215, 193, .22);
+      border-radius: 50%;
+      box-shadow: 0 0 55px rgba(25, 215, 193, .1), inset 0 0 40px rgba(255, 38, 56, .06);
+    }
+
+    .moth {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(25, 215, 193, .18));
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      50% { filter: drop-shadow(0 0 18px rgba(255, 38, 56, .22)); transform: translateY(-3px); }
+    }
+
+    .host {
+      margin-top: -20px;
+      color: var(--cyan);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      font-weight: 700;
+    }
+
+    .host .at { color: var(--red); }
+
+    .status-line {
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+    }
+
+    .dashboard { min-width: 0; }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .clock {
+      color: var(--white);
+      font-size: clamp(2.35rem, 6vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -.06em;
+      line-height: .9;
+      text-shadow: 0 0 28px rgba(25, 215, 193, .12);
+    }
+
+    .seconds { color: var(--red); font-size: .42em; letter-spacing: 0; }
+
+    .date {
+      margin-top: 12px;
+      color: var(--cyan);
+      font-size: clamp(.78rem, 1.4vw, 1rem);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .weather {
+      min-width: 250px;
+      padding: 14px 17px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--panel);
+      box-shadow: 0 0 26px rgba(255, 38, 56, .05);
+    }
+
+    .weather-title { color: var(--cyan); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+    .weather-title::before { content: "󰖐  "; }
+    .weather-main { margin: 7px 0 4px; font-size: 1rem; }
+    .weather-main .temp { color: var(--white); font-size: 1.45rem; font-weight: 800; }
+    .weather-main .dot { color: var(--red); }
+    .weather-meta { color: var(--muted); font-size: .68rem; line-height: 1.55; }
+
+    .search {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      margin-bottom: 26px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: rgba(1, 7, 7, .86);
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .search:focus-within { border-color: var(--cyan); box-shadow: 0 0 22px rgba(25, 215, 193, .1); }
+    .search-icon { color: var(--red); margin-right: 12px; }
+    .search input { width: 100%; border: 0; outline: 0; color: var(--white); background: transparent; font: inherit; }
+    .search input::placeholder { color: #56605e; }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .section {
+      position: relative;
+      min-height: 192px;
+      padding: 21px 20px 17px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: linear-gradient(145deg, rgba(6, 18, 18, .9), rgba(2, 7, 7, .9));
+      overflow: hidden;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      right: -24px;
+      bottom: -24px;
+      width: 70px;
+      height: 70px;
+      border: 1px solid rgba(25, 215, 193, .12);
+      transform: rotate(45deg);
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 15px;
+      color: var(--cyan);
+      font-size: .82rem;
+      letter-spacing: .1em;
+    }
+
+    .section h2::before { content: "├─"; color: var(--red); }
+    .section h2::after { content: ""; height: 1px; flex: 1; background: var(--red); opacity: .8; }
+
+    .links { display: grid; gap: 5px; }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      padding: 7px 8px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: .79rem;
+      border-radius: 3px;
+      transition: color .16s, background .16s, transform .16s;
+    }
+
+    .links a::before { content: "•"; color: var(--red); margin-right: 11px; }
+    .links a:hover { color: var(--cyan-soft); background: rgba(25, 215, 193, .07); transform: translateX(4px); }
+    .links a:hover::before { text-shadow: 0 0 8px var(--red); }
+
+    .footer { margin-top: 20px; color: #4f5d5a; font-size: .62rem; letter-spacing: .08em; text-align: right; }
+    .footer .red { color: var(--red); }
+
+    @media (max-width: 860px) {
+      .shell { grid-template-columns: 1fr; padding-top: 24px; }
+      .moth-wrap { width: min(62vw, 320px); }
+      .topbar { align-items: stretch; }
+    }
+
+    @media (max-width: 610px) {
+      .shell { width: min(100% - 24px, 520px); }
+      .topbar, .sections { grid-template-columns: 1fr; }
+      .clock-block { text-align: center; }
+      .weather { min-width: 0; }
+      .section { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .moth { animation: none; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <aside class="identity">
+      <div class="moth-wrap">
+        <img class="moth" src="moth.png" alt="Red and teal moth">
+      </div>
+      <div class="host">user<span class="at">@</span>mothline</div>
+      <div class="status-line">CachyOS <span style="color:var(--red)">•</span> Niri <span style="color:var(--red)">•</span> Noctalia</div>
+    </aside>
+
+    <section class="dashboard">
+      <header class="topbar">
+        <div class="clock-block">
+          <div class="clock"><span id="hours">00</span>:<span id="minutes">00</span><span class="seconds">:<span id="seconds">00</span></span></div>
+          <div class="date" id="date">Loading date…</div>
+        </div>
+        <div class="weather" aria-live="polite">
+          <div class="weather-title" id="weather-title">YOUR CITY</div>
+          <div class="weather-main" id="weather-main"><span class="temp">--°F</span> <span class="dot">•</span> Loading</div>
+          <div class="weather-meta" id="weather-meta">Retrieving current conditions…</div>
+        </div>
+      </header>
+
+      <form class="search" action="https://www.google.com/search" method="get">
+        <span class="search-icon">󰍉</span>
+        <input name="q" type="search" autocomplete="off" autofocus placeholder="Search the web…" aria-label="Search Google">
+      </form>
+
+      <div class="sections">
+        <article class="section">
+          <h2>US NAVY VETERAN</h2>
+          <nav class="links">
+            <a href="https://www.va.gov/">VA.gov</a>
+            <a href="https://www.mynavyhr.navy.mil/">MyNavy HR</a>
+            <a href="https://milconnect.dmdc.osd.mil/milconnect/">MilConnect</a>
+            <a href="https://www.navyfederal.org/">Navy Federal</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>GAMING</h2>
+          <nav class="links">
+            <a href="https://store.steampowered.com/">Steam</a>
+            <a href="https://www.protondb.com/">ProtonDB</a>
+            <a href="https://www.pcgamingwiki.com/">PCGamingWiki</a>
+            <a href="https://www.nexusmods.com/">Nexus Mods</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>PERSONAL</h2>
+          <nav class="links">
+            <a href="https://mail.google.com/">Gmail</a>
+            <a href="https://drive.google.com/">Google Drive</a>
+            <a href="https://www.youtube.com/">YouTube</a>
+            <a href="https://www.reddit.com/">Reddit</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>WORK</h2>
+          <nav class="links">
+            <a href="https://www.microsoft365.com/">Microsoft 365</a>
+            <a href="https://outlook.office.com/mail/">Outlook</a>
+            <a href="https://teams.microsoft.com/">Microsoft Teams</a>
+            <a href="https://www.linkedin.com/">LinkedIn</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>HACKING</h2>
+          <nav class="links">
+            <a href="https://defcon.org/">DEF CON</a>
+            <a href="https://www.blackhat.com/">Black Hat</a>
+            <a href="https://thehackernews.com/">The Hacker News</a>
+            <a href="https://www.bleepingcomputer.com/">BleepingComputer</a>
+            <a href="https://krebsonsecurity.com/">Krebs on Security</a>
+            <a href="https://www.exploit-db.com/">Exploit Database</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>DEVELOPMENT</h2>
+          <nav class="links">
+            <a href="https://github.com/">GitHub</a>
+            <a href="https://gitlab.com/">GitLab</a>
+            <a href="https://stackoverflow.com/">Stack Overflow</a>
+            <a href="https://developer.mozilla.org/">MDN Web Docs</a>
+            <a href="https://devdocs.io/">DevDocs</a>
+            <a href="https://wiki.archlinux.org/">ArchWiki</a>
+          </nav>
+        </article>
+      </div>
+
+      <div class="footer">SYSTEM READY <span class="red">●</span> WEATHER VIA OPEN-METEO</div>
+    </section>
+  </main>
+
+  <script>
+    // Public defaults are deliberately generic. Set these four values locally.
+    const weatherCity = "YOUR CITY";
+    const weatherLatitude = 0;
+    const weatherLongitude = 0;
+    const clockZone = "UTC";
+    document.getElementById("weather-title").textContent = weatherCity;
+
+    function updateClock() {
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: clockZone, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+      }).formatToParts(now).reduce((all, part) => (all[part.type] = part.value, all), {});
+      document.getElementById("hours").textContent = parts.hour;
+      document.getElementById("minutes").textContent = parts.minute;
+      document.getElementById("seconds").textContent = parts.second;
+      document.getElementById("date").textContent = new Intl.DateTimeFormat("en-US", {
+        timeZone: clockZone, weekday: "long", year: "numeric", month: "long", day: "2-digit"
+      }).format(now);
+    }
+
+    const conditions = {
+      0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Overcast",
+      45: "Fog", 48: "Icy fog", 51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
+      56: "Freezing drizzle", 57: "Heavy freezing drizzle", 61: "Light rain", 63: "Rain",
+      65: "Heavy rain", 66: "Freezing rain", 67: "Heavy freezing rain", 71: "Light snow",
+      73: "Snow", 75: "Heavy snow", 77: "Snow grains", 80: "Light showers",
+      81: "Showers", 82: "Heavy showers", 85: "Snow showers", 86: "Heavy snow showers",
+      95: "Thunderstorm", 96: "Storm with hail", 99: "Severe storm with hail"
+    };
+
+    async function updateWeather() {
+      const main = document.getElementById("weather-main");
+      const meta = document.getElementById("weather-meta");
+      try {
+        const endpoint = `https://api.open-meteo.com/v1/forecast?latitude=${weatherLatitude}&longitude=${weatherLongitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=${encodeURIComponent(clockZone)}`;
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error("Weather service unavailable");
+        const { current } = await response.json();
+        main.innerHTML = `<span class="temp">${Math.round(current.temperature_2m)}°F</span> <span class="dot">•</span> ${conditions[current.weather_code] || "Current conditions"}`;
+        meta.textContent = `FEELS ${Math.round(current.apparent_temperature)}°  •  HUMIDITY ${current.relative_humidity_2m}%  •  WIND ${Math.round(current.wind_speed_10m)} MPH`;
+      } catch (error) {
+        main.innerHTML = `<span class="temp">--°F</span> <span class="dot">•</span> Offline`;
+        meta.textContent = "Weather refresh failed — check network access";
+      }
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+    updateWeather();
+    setInterval(updateWeather, 15 * 60 * 1000);
+  </script>
+</body>
+</html>

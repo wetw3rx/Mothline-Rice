@@ -1,0 +1,183 @@
+# Mothline lock screen for Noctalia v5 schema 2.
+
+[lockscreen]
+enabled = true
+lock_before_suspend = true
+fingerprint = false
+allow_empty_password = false
+
+# Use an in-memory desktop snapshot and darken it into the Mothline backdrop.
+blurred_desktop = false
+blur_intensity = 0.0
+tint_intensity = 0.0
+wallpaper = "@HOME@/.local/share/mothline/mothline-lockscreen.png"
+
+# Protect and render the lock interface on every connected output.
+monitors = []
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003"
+]
+
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = false
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height = 206.0
+box_width = 810.0
+cx = 960.0
+cy = 898.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.92
+background_radius = 10.0
+center_password_text = true
+input_opacity = 0.96
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 206.0
+box_width = 810.0
+cx = 1280.0
+cy = 1338.0
+output = "eDP-1"
+placement_height = 1600.0
+placement_width = 2560.0
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.92
+background_radius = 10.0
+center_password_text = true
+input_opacity = 0.96
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+# Fallback login surface used before output dimensions are available.
+[lockscreen_widgets.widget."lockscreen-login-box@winit"]
+box_height = 206.0
+box_width = 810.0
+cx = 468.0
+cy = 866.0
+output = "winit"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+background_color = "surface_variant"
+background_opacity = 0.92
+background_radius = 10.0
+center_password_text = true
+input_opacity = 0.96
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = false
+
+# Weather card, upper left.
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+box_height = 0.0
+box_width = 0.0
+cx = 420.0
+cy = 350.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "weather"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+background = true
+background_color = "surface_variant"
+background_opacity = 0.78
+background_radius = 10.0
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+shadow = true
+
+# Calendar card, upper right.
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height = 384.0
+box_width = 592.0
+cx = 1500.0
+cy = 350.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "calendar"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background = true
+background_color = "surface_variant"
+background_opacity = 0.78
+background_radius = 10.0
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+shadow = true
+
+# Military-time clock, centered above the login box.
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height = 0.0
+box_width = 0.0
+cx = 960.0
+cy = 210.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+format = "{:%H:%M}\n{:%A, %B %d}"
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+background = true
+background_color = "surface_variant"
+background_opacity = 0.72
+background_radius = 10.0
+shadow = true
+
+# The login box uses the existing moth avatar.
+[shell]
+avatar_path = "@HOME@/.local/share/mothline/moth-avatar.png"

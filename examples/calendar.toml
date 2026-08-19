@@ -1,0 +1,5 @@
+# Copy to ~/.config/noctalia/calendar.toml only after replacing the example ID.
+[calendar.account.personal_google]
+type = "google"
+enabled = false
+calendars = ["you@example.com"]

@@ -1,0 +1,64 @@
+// Mothline root configuration for Niri 26.04.
+
+include "./cfg/keybinds.kdl"
+include "./cfg/input.kdl"
+include "./cfg/display.kdl"
+include "./cfg/layout.kdl"
+include "./cfg/animation.kdl"
+include "./cfg/rules.kdl"
+include "./cfg/misc.kdl"
+
+spawn-at-startup "noctalia" "--daemon"
+
+// Zsh-only Fastfetch startup.
+spawn-at-startup "zsh" "-lc" "sleep 2; fastfetch-popup"
+
+spawn-at-startup "kdeconnect-indicator"
+
+// Stable Mothline compositor palette.
+include "mothline.kdl"
+
+input {
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+window-rule {
+    match app-id="^fastfetch-popup$"
+
+    open-floating true
+
+    default-column-width {
+        fixed 1100
+    }
+
+    default-window-height {
+        fixed 580
+    }
+}
+
+// Allow Steam games to open fullscreen.
+window-rule {
+    match app-id="^steam_app_\\d+$"
+    open-fullscreen true
+}
+
+// Phone management and mirroring applications float by default.
+window-rule {
+    match app-id="org.kde.kdeconnect"
+    match app-id="scrcpy"
+    match app-id="valent"
+    open-floating true
+}
+
+binds {
+    // Open GTK Printer Settings
+    "Super+P" { spawn "system-config-printer"; }
+
+    // Open GTK Document Scanner
+    "Super+Shift+S" { spawn "simple-scan"; }
+}
+
+
+include "mothline-notifications.kdl"
+
+include "mothline-launcher.kdl"

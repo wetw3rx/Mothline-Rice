@@ -1,0 +1,60 @@
+// Mothline compositor styling for Niri 26.04.
+// Loaded after noctalia.kdl so this palette remains stable.
+
+layout {
+    // Existing 16-pixel gaps remain defined in cfg/layout.kdl.
+
+    // Use borders rather than focus rings so inactive windows retain a
+    // restrained charcoal outline.
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-gradient from="#D11F32" to="#19B8AE" angle=135 in="srgb-linear"
+        inactive-color "#293036"
+        urgent-color "#FF4054"
+    }
+
+    shadow {
+        on
+        softness 28
+        spread 4
+        offset x=0 y=6
+        draw-behind-window true
+        color "#00000080"
+        inactive-color "#00000050"
+    }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        gap 6
+        width 4
+        length total-proportion=0.72
+        position "top"
+        gaps-between-tabs 3
+        corner-radius 6
+        active-gradient from="#D11F32" to="#19B8AE" angle=90
+        inactive-color "#293036"
+        urgent-color "#FF4054"
+    }
+
+    insert-hint {
+        color "#19B8AE99"
+    }
+}
+
+// Match Noctalia's Mothline corner geometry rather than the previous 20 px.
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+recent-windows {
+    highlight {
+        active-color "#D11F32"
+        urgent-color "#FF4054"
+    }
+}

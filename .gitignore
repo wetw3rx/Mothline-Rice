@@ -1,0 +1,9 @@
+*.bak
+*.backup
+*.before-*
+*.log
+*~
+.DS_Store
+.idea/
+.vscode/
+screenshots/private/

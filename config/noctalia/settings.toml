@@ -1,0 +1,14 @@
+[widget.clock]
+format = "{:%H:%M}\n{:%d/%m/%y}"
+vertical_format = "{:%H\n%M}"
+tooltip_format = "{:%A, %B %d, %Y}"
+
+[widget.clock-12h]
+type   = "clock"
+enabled = true
+format = "{:%-I:%M %p}"
+
+[widget.clock-seconds]
+type   = "clock"
+format = "{:%H:%M:%S}"
+vertical_format = "{:%H\n%M\n%S}"

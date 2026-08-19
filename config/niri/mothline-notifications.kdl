@@ -1,0 +1,27 @@
+// Mothline notification integration for Niri 26.04.
+
+// Noctalia publishes a blur region for its notification surfaces. This rule
+// enables realistic background blur without xray sampling through windows.
+layer-rule {
+    match namespace="^noctalia-notification"
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// Conservative global blur tuning: dark, legible, and lightly textured.
+blur {
+    passes 2
+    offset 3.0
+    noise 0.025
+    saturation 1.05
+}
+
+// Open notification history directly.
+binds {
+    Mod+N {
+        spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"
+    }
+}

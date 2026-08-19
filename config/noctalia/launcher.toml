@@ -1,0 +1,65 @@
+# Mothline application launcher for Noctalia v5.
+
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+
+[shell.panel]
+# Centered floating command-panel presentation.
+launcher_placement = "floating"
+launcher_position = "center"
+floating_layer = "overlay"
+floating_offset = 8
+open_near_click_launcher = false
+
+# Glass retains the black Mothline surface while allowing Niri blur through.
+transparency_mode = "glass"
+borders = true
+shadow = true
+list_item_background = true
+
+[shell.launcher]
+categories = true
+show_icons = true
+
+# Keep the results clean; package origins remain available in app details.
+show_app_origin_indicator = false
+
+# List mode preserves subtitles and resembles the Fastfetch information frame.
+compact = false
+app_grid = false
+
+# Right-click or Shift+Enter exposes per-application desktop actions.
+show_app_actions = true
+sort_by_usage = true
+pinned = []
+
+fetch_exchange_rates = true
+provider_prefix = "/"
+auto_paste = "auto"
+
+[shell.launcher.providers.calculator]
+prefix = "calc"
+global = true
+
+[shell.launcher.providers.emoji]
+prefix = "emo"
+
+[shell.launcher.providers.session]
+prefix = "session"
+global = false
+
+[shell.launcher.providers.wallpaper]
+prefix = "wall"
+
+[shell.launcher.providers.windows]
+prefix = "win"
+
+[widget.launcher]
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 700
+color = "on_surface"
+icon_color = "primary"
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
+capsule_border = "outline"
+capsule_opacity = 0.88

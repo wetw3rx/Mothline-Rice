@@ -1,0 +1,25 @@
+// Float Steam child windows, but not the main Steam window.
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^[Ss]team$"#
+    open-floating true
+}
+
+// Keep Steam notification toasts unobtrusive.
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+// Keep Noctalia's wallpaper inside the compositor backdrop.
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// Open Firefox maximized.
+window-rule {
+    match app-id="firefox"
+    open-maximized true
+}

@@ -1,0 +1,94 @@
+# Mothline visual override for Noctalia v5.
+# Noctalia merges all TOML files in ~/.config/noctalia alphabetically.
+
+[theme]
+mode = "dark"
+source = "custom"
+custom_palette = "Mothline"
+pure_black_dark = false
+
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+corner_radius_scale = 0.85
+button_borders = true
+input_borders = true
+popup_borders = true
+card_borders = true
+popup_shadows = true
+blur = false
+
+[bar.default]
+position = "top"
+enabled = true
+reserve_space = true
+layer = "overlay"
+
+thickness = 38
+background_opacity = 0.92
+border = "primary"
+border_width = 1.0
+shadow = true
+contact_shadow = true
+panel_overlap = 1
+
+# A narrow floating strip that still remains anchored at the top.
+radius = 10
+concave_edge_corners = false
+margin_ends = 16
+margin_edge = 8
+padding = 12
+widget_spacing = 7
+
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 600
+color = "on_surface"
+icon_color = "secondary"
+hover_highlight = true
+
+# Give each widget a restrained dark capsule with a red outline.
+capsule = true
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
+capsule_thickness = 0.78
+capsule_radius = 7.0
+capsule_padding = 7
+capsule_opacity = 0.88
+capsule_border = "outline"
+
+# Keep the existing widget placement from config.toml.
+# This file intentionally does not redefine start, center, or end.
+
+[widget.clock]
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 700
+color = "on_primary"
+icon_color = "on_primary"
+capsule = true
+capsule_fill = "primary"
+capsule_foreground = "on_primary"
+capsule_border = "primary"
+capsule_opacity = 0.95
+
+[widget.sysmon]
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 600
+color = "on_surface"
+icon_color = "secondary"
+capsule_fill = "surface_variant"
+capsule_border = "outline"
+
+# These take effect automatically if the widgets are added later.
+[widget.workspaces]
+color = "on_surface"
+icon_color = "primary"
+capsule_fill = "surface_variant"
+capsule_border = "outline"
+
+[widget.network]
+icon_color = "secondary"
+
+[widget.volume]
+icon_color = "secondary"
+
+[widget.notifications]
+icon_color = "primary"

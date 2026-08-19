@@ -1,0 +1,7 @@
+// Display geometry is intentionally disabled for portability.
+// Run `niri msg outputs`, copy this block, and replace its sample values.
+/- output "eDP-1" {
+    mode "2560x1600@240.000"
+    scale 1
+    position x=0 y=0
+}

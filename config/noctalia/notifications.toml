@@ -1,0 +1,44 @@
+# Mothline notification behavior for Noctalia v5.
+# Colors are inherited from the installed Mothline custom palette.
+
+[notification]
+enable_daemon = true
+show_app_name = true
+show_actions = true
+
+# Sit beneath the floating 38 px Mothline bar and remain visible in fullscreen.
+position = "top_right"
+layer = "overlay"
+scale = 1.0
+background_opacity = 0.94
+border = true
+offset_x = 18
+offset_y = 58
+
+# Keep the desktop calm when several applications notify at once.
+collapse_on_dismiss = true
+max_visible = 4
+
+# Preserve history unless it is cleared manually.
+history_retention_hours = 0
+
+# Empty means notifications follow every available monitor. No notification is
+# lost when an external monitor disconnects.
+monitors = []
+
+[control_center]
+sidebar = "compact"
+sidebar_section = "compact"
+width = 700
+show_shortcut_labels = true
+show_session_button = true
+
+[widget.notifications]
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 600
+color = "on_surface"
+icon_color = "primary"
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
+capsule_border = "outline"
+capsule_opacity = 0.88

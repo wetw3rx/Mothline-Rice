@@ -1,0 +1,12 @@
+// Mothline launcher/panel effect for Niri 26.04.
+// No global blur block is declared here, avoiding conflict with the
+// notification package's existing global blur tuning.
+
+layer-rule {
+    match namespace="^noctalia-(panel|attached-panel)"
+
+    background-effect {
+        blur true
+        xray false
+    }
+}

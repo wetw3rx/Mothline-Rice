@@ -1,0 +1,6 @@
+#!/bin/sh
+
+exec kitty \
+  --class fastfetch-popup \
+  --config "$HOME/.config/kitty/fastfetch.conf" \
+  fastfetch
