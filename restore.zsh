@@ -14,14 +14,14 @@ print -n "Restore now? [y/N] "
 read -r answer
 [[ "$answer" == [Yy] ]] || { print "Cancelled."; exit 0; }
 
-for name in niri noctalia gtk-3.0 gtk-4.0 qt6ct kitty fastfetch; do
+for name in niri noctalia gtk-3.0 gtk-4.0 qt6ct kitty fastfetch fluxer obsidian; do
     if [[ -d "$backup_dir/config/$name" ]]; then
         rm -rf -- "$HOME/.config/$name"
         cp -a "$backup_dir/config/$name" "$HOME/.config/$name"
     fi
 done
 
-for name in startpage mothline; do
+for name in startpage mothline mothline-sddm; do
     if [[ -d "$backup_dir/local-share/$name" ]]; then
         rm -rf -- "$HOME/.local/share/$name"
         cp -a "$backup_dir/local-share/$name" "$HOME/.local/share/$name"
