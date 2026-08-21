@@ -24,9 +24,11 @@ teal highlights, restrained glass surfaces, and a recurring moth emblem.
 
 ## Preview
 
-Add desktop, lock-screen, terminal, launcher, and start-page screenshots to
-`screenshots/`. Avoid screenshots containing notifications, email addresses,
-public IP addresses, calendar events, or private browser tabs.
+![Mothline desktop](screenshots/mothline-desktop.png)
+
+Additional desktop, lock-screen, terminal, launcher, and start-page screenshots
+can be added under `screenshots/`. Avoid screenshots containing notifications,
+email addresses, public IP addresses, calendar events, or private browser tabs.
 
 ## Requirements
 
