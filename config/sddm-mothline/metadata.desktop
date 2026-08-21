@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Mothline
+Description=Mothline SDDM login theme
+Author=Clement
+Copyright=(c) 2025 Clement
+License=GPLv3
+Type=sddm-theme
+version=0.1
+MainScript=Main.qml
+ConfigFile=Commons/Settings.conf
+TranslationDirectory=translations
+QtVersion=6
+Theme-Id=mothline-sddm
+Theme-API=2.0
