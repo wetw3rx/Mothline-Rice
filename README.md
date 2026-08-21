@@ -15,6 +15,9 @@ teal highlights, restrained glass surfaces, and a recurring moth emblem.
 - Tela Red Dark system icons and optional Papirus-Dark Claws Mail icons
 - Kitty theme plus a dedicated Fastfetch popup profile
 - Fastfetch layout with NVIDIA, network, and optional PIA status
+- Fluxer Canary Mothline CSS theme
+- Obsidian Mothline CSS snippet
+- Mothline SDDM theme and login-screen assets
 - Responsive start page with military time and Open-Meteo weather
 - Mothline lock-screen wallpaper and avatar
 - Zsh installer with timestamped backups and a restoration script
@@ -57,13 +60,14 @@ paru -S adw-gtk-theme nwg-look qt6ct-kde tela-icon-theme \
 Clone the repository and run the Zsh installer:
 
 ```zsh
-git clone https://github.com/wetw3rx/mothline-rice.git
+git clone https://github.com/wetw3rx/Mothline-Rice.git
 cd mothline-rice
 ./install.zsh
 ```
 
-The installer backs up existing Niri, Noctalia, Kitty, Fastfetch, start-page,
-and Mothline asset directories beneath:
+The installer backs up existing Niri, Noctalia, GTK, Qt6ct, Kitty,
+Fastfetch, Fluxer, Obsidian theme state, start-page, SDDM staging, and
+Mothline asset directories beneath:
 
 ```text
 ~/.local/state/mothline-backups/
@@ -100,6 +104,18 @@ It runs `niri validate` after installation when Niri is available.
    and back in so `QT_QPA_PLATFORMTHEME=qt6ct` takes effect.
 8. Use `Tela-red-dark` as the GTK icon theme. Claws Mail can optionally use
    Papirus-Dark under Configuration -> Preferences -> Display -> Themes.
+
+## Documentation
+
+Additional guides are available in `docs/`:
+
+- `Mothline_3-2-1_Backup_Guide.pdf`
+- `Mothline-Backup-and-GitHub-FAQ.pdf`
+- `Mothline-Tips-and-Tricks-Niri-Fullscreen.pdf`
+
+The SDDM source tree is included under `config/sddm-mothline/`. The main
+installer stages it beneath `~/.local/share/mothline-sddm` rather than
+silently modifying system-wide SDDM directories with elevated privileges.
 
 ## Backup
 
@@ -145,7 +161,7 @@ git branch -M main
 git add .
 git diff --cached --check
 git commit -m "Initial Mothline rice"
-git remote add origin https://github.com/wetw3rx/mothline-rice.git
+git remote add origin https://github.com/wetw3rx/Mothline-Rice.git
 git push -u origin main
 ```
 
