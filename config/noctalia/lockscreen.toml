@@ -10,7 +10,7 @@ allow_empty_password = false
 blurred_desktop = false
 blur_intensity = 0.0
 tint_intensity = 0.0
-wallpaper = "@HOME@/.local/share/mothline/mothline-lockscreen.png"
+wallpaper = "/home/skilgore/Pictures/Wallpapers/mothline-lockscreen.png"
 
 # Protect and render the lock interface on every connected output.
 monitors = []
@@ -114,7 +114,7 @@ show_session_buttons = true
 show_unlock_hint = true
 show_weather = false
 
-# Weather card, upper left.
+# Fishers weather card, upper left.
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
 box_height = 0.0
 box_width = 0.0
@@ -180,4 +180,5 @@ shadow = true
 
 # The login box uses the existing moth avatar.
 [shell]
-avatar_path = "@HOME@/.local/share/mothline/moth-avatar.png"
+avatar_path = "/home/skilgore/Pictures/Avatars/moth_60x60.png"
+

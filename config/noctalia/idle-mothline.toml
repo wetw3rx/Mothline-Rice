@@ -1,0 +1,24 @@
+# Mothline idle behavior for Noctalia v5.
+#
+# 10 minutes: fade into the Mothline lock screen.
+# 11 minutes: power off the display.
+# Automatic suspend is intentionally disabled.
+
+[idle]
+behavior_order = ["lock", "screen-off", "suspend"]
+pre_action_fade_seconds = 2.0
+
+[idle.behavior.lock]
+timeout = 600
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 660
+action = "screen_off"
+enabled = true
+
+[idle.behavior.suspend]
+timeout = 1800
+action = "lock_and_suspend"
+enabled = false

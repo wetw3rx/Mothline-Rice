@@ -25,3 +25,4 @@ binds {
         spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"
     }
 }
+

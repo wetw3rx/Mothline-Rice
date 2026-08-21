@@ -1,4 +1,5 @@
 @import url("noctalia.css");
+@import url("noctalia.css");
 
 /* Mothline styling for legacy GTK 3 applications */
 window,
@@ -47,3 +48,4 @@ button:hover {
     background-color: #135e5b;
     color: #ffffff;
 }
+

@@ -63,3 +63,4 @@ capsule_fill = "surface_variant"
 capsule_foreground = "on_surface"
 capsule_border = "outline"
 capsule_opacity = 0.88
+

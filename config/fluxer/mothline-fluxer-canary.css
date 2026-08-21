@@ -1,0 +1,182 @@
+/* Mothline for Fluxer Canary
+ * Foundation theme — 2026-08-19
+ * Paste the complete file into:
+ * User Settings > Look & Feel > Custom Theme Tokens > Custom CSS Overrides
+ */
+
+:root {
+  /* Mothline palette */
+  --mothline-void: #07090b;
+  --mothline-black: #0b0e11;
+  --mothline-panel: #101419;
+  --mothline-raised: #171c22;
+  --mothline-hover: #202831;
+  --mothline-red: #d33f49;
+  --mothline-red-bright: #ff5864;
+  --mothline-teal: #35c7bd;
+  --mothline-teal-bright: #61e8dc;
+  --mothline-white: #f4f7f8;
+  --mothline-muted: #98a2aa;
+  --mothline-dim: #66717a;
+
+  /* Main surfaces */
+  --background-primary: var(--mothline-black);
+  --background-secondary: var(--mothline-panel);
+  --background-secondary-lighter: var(--mothline-raised);
+  --background-secondary-alt: #1b2128;
+  --background-tertiary: var(--mothline-void);
+  --background-channel-header: #0d1115;
+  --guild-list-foreground: var(--mothline-void);
+  --background-header-secondary: var(--mothline-black);
+  --background-header-primary: var(--mothline-panel);
+  --background-header-primary-hover: var(--mothline-hover);
+  --background-textarea: #0d1115;
+
+  /* Text */
+  --text-tertiary-secondary: var(--mothline-dim);
+  --text-tertiary-muted: #78838c;
+  --text-tertiary: #aeb7bd;
+  --text-primary-muted: var(--mothline-muted);
+  --text-chat-muted: var(--mothline-muted);
+  --text-secondary: #c8ced2;
+  --text-chat: var(--mothline-white);
+  --text-primary: var(--mothline-white);
+  --text-link: var(--mothline-teal-bright);
+  --text-code: #dce2e5;
+  --text-selection: #35c7bd42;
+  --text-warning: #ffbd69;
+  --text-feedback-positive: var(--mothline-teal);
+
+  /* Panels and interaction */
+  --panel-control-bg: var(--mothline-black);
+  --panel-control-border: #34404a;
+  --panel-control-divider: #28323a;
+  --panel-control-highlight: var(--mothline-teal);
+  --background-modifier-hover: #202831cc;
+  --background-modifier-selected: #263139;
+  --background-modifier-accent: #2b353e;
+  --background-modifier-accent-focus: #3a4650;
+
+  /* Mothline identity */
+  --brand-primary: var(--mothline-red);
+  --brand-secondary: var(--mothline-teal);
+  --brand-primary-light: var(--mothline-red-bright);
+  --brand-primary-fill: #241419;
+  --focus-primary: var(--mothline-teal-bright);
+  --border-color: #313a42;
+  --border-color-hover: var(--mothline-red);
+  --border-color-focus: var(--mothline-teal);
+  --accent-purple: #bc8cff;
+
+  /* Status */
+  --status-online: var(--mothline-teal);
+  --status-idle: #d9a441;
+  --status-dnd: var(--mothline-red-bright);
+  --status-offline: #68737c;
+  --status-danger: var(--mothline-red-bright);
+
+  /* Buttons */
+  --control-button-normal-bg: transparent;
+  --control-button-hover-bg: #202831;
+  --control-button-active-bg: #2a343d;
+  --control-button-danger-text: var(--mothline-red-bright);
+  --control-button-danger-hover-bg: var(--mothline-red);
+  --button-primary-fill: var(--mothline-red);
+  --button-primary-active-fill: var(--mothline-red-bright);
+  --button-primary-text: #ffffff;
+  --button-secondary-fill: #35c7bd22;
+  --button-secondary-active-fill: #35c7bd38;
+  --button-secondary-text: var(--mothline-white);
+  --button-danger-fill: #b72f3a;
+  --button-danger-active-fill: var(--mothline-red-bright);
+  --button-danger-text: #ffffff;
+  --button-danger-outline-border: 1px solid var(--mothline-red-bright);
+  --button-danger-outline-text: var(--mothline-red-bright);
+  --button-danger-outline-active-fill: #d33f4933;
+  --button-ghost-text: var(--mothline-white);
+  --button-inverted-fill: var(--mothline-white);
+  --button-inverted-text: var(--mothline-black);
+  --button-outline-border: 1px solid #35c7bd80;
+  --button-outline-text: var(--mothline-teal-bright);
+  --button-outline-active-fill: #35c7bd26;
+  --button-outline-active-border: 1px solid var(--mothline-teal);
+
+  /* Messages and markup */
+  --markup-mention-border: #d33f4970;
+  --markup-everyone-text: var(--mothline-red-bright);
+  --markup-everyone-fill: #d33f4926;
+  --markup-everyone-border: #d33f4966;
+  --markup-here-text: var(--mothline-teal-bright);
+  --markup-here-fill: #35c7bd20;
+  --markup-here-border: #35c7bd66;
+
+  /* Code, alerts, scrollbars, shadows */
+  --bg-code: #0a0d10;
+  --bg-code-block: #080a0d;
+  --alert-note-color: var(--mothline-teal);
+  --alert-tip-color: #62d58b;
+  --alert-important-color: #bc8cff;
+  --alert-warning-color: #ffbd69;
+  --alert-caution-color: var(--mothline-red-bright);
+  --shadow-sm: 0 1px 3px #00000066;
+  --shadow-md: 0 3px 8px #00000080;
+  --shadow-lg: 0 8px 18px #00000099;
+  --shadow-xl: 0 14px 32px #000000b3;
+  --spoiler-overlay-color: #050608d9;
+  --spoiler-overlay-hover-color: #171c22e6;
+  --scrollbar-thumb-bg: #d33f4966;
+  --scrollbar-thumb-bg-hover: #35c7bdb3;
+}
+
+/* Stable finishing touches */
+::selection {
+  background: #35c7bd42;
+  color: #ffffff;
+}
+
+.hljs {
+  color: #dce2e5;
+  background: #080a0d;
+}
+
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: var(--mothline-red-bright);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-meta .hljs-string {
+  color: var(--mothline-teal-bright);
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  color: var(--mothline-muted);
+}
+
+[class*="VoiceCallView.module__root"] {
+  background-color: var(--mothline-black);
+}
+
+[class*="NativeTitlebar.module__closeButton"]:hover {
+  background-color: var(--mothline-red);
+  color: #ffffff;
+}
+
+[class*="Divider.module__unreadBadge"],
+[class*="Messages.module__newMessagesBarText"],
+[class*="Messages.module__newMessagesBarAction"] {
+  color: #ffffff;
+}
+
+[class*="ScrollIndicatorOverlay.module__indicator"],
+[class*="ScrollIndicatorOverlay.module__indicatorBrand"] {
+  background-color: #202831;
+  color: var(--mothline-white);
+}

@@ -12,7 +12,7 @@
     "mOnSurface": "#F5F7F8",
     "mSurfaceVariant": "#0D1012",
     "mOnSurfaceVariant": "#8B969C",
-    "mOutline": "#730F1C",
+    "mOutline": "#55131B",
     "mShadow": "#000000",
     "mHover": "#135E5B",
     "mOnHover": "#FFFFFF",
@@ -46,3 +46,4 @@
     }
   }
 }
+

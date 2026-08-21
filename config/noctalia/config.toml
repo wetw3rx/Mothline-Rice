@@ -24,7 +24,7 @@ end = [
     "clock",
     "control-center",
     "session"
-]
+]   
 # =====================================================================
 # NOCTALIA V5 TEMPLATE CONFIGURATION
 # Files in ~/.config/noctalia/ are read alphabetically and merged.

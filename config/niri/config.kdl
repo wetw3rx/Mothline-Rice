@@ -4,7 +4,6 @@ include "./cfg/keybinds.kdl"
 include "./cfg/input.kdl"
 include "./cfg/display.kdl"
 include "./cfg/layout.kdl"
-include "./cfg/animation.kdl"
 include "./cfg/rules.kdl"
 include "./cfg/misc.kdl"
 
@@ -15,11 +14,25 @@ spawn-at-startup "zsh" "-lc" "sleep 2; fastfetch-popup"
 
 spawn-at-startup "kdeconnect-indicator"
 
-// Stable Mothline compositor palette.
+// Retain Noctalia's generated/fallback colors, then override them with
+// the stable Mothline compositor palette.
+include "noctalia.kdl"
 include "mothline.kdl"
 
 input {
     focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    scale 1
+    position x=0 y=1080
+}
+
+/- output "eDP-1" {
+    mode "2560x1600@240.000"
+    scale 1
+    position x=1080 y=3550
 }
 
 window-rule {
@@ -51,6 +64,11 @@ window-rule {
 }
 
 binds {
+ 
+    // Open Maximized Windows
+    Mod+F       { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
     // Open GTK Printer Settings
     "Super+P" { spawn "system-config-printer"; }
 

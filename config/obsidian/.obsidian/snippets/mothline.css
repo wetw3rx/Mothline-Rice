@@ -1,0 +1,249 @@
+/*
+ * Mothline for Obsidian
+ * Vault: Talon
+ * Near-black surfaces, signal-red focus, teal data accents.
+ * Install as a CSS snippet; disabling the snippet restores the prior look.
+ */
+
+body.theme-dark {
+  --moth-black: #080a0d;
+  --moth-panel: #0e1116;
+  --moth-raised: #151a20;
+  --moth-border: #28313a;
+  --moth-white: #f2f5f6;
+  --moth-muted: #939da6;
+  --moth-red: #ff3b3f;
+  --moth-red-dim: #a8262b;
+  --moth-teal: #18d5c3;
+  --moth-teal-dim: #117d75;
+
+  --background-primary: var(--moth-black);
+  --background-primary-alt: #0b0e12;
+  --background-secondary: var(--moth-panel);
+  --background-secondary-alt: #11151a;
+  --background-modifier-border: var(--moth-border);
+  --background-modifier-border-hover: var(--moth-teal-dim);
+  --background-modifier-hover: rgba(24, 213, 195, 0.08);
+  --background-modifier-active-hover: rgba(255, 59, 63, 0.13);
+  --background-modifier-form-field: #0b0e12;
+  --background-modifier-form-field-highlighted: #131820;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.72);
+
+  --text-normal: var(--moth-white);
+  --text-muted: var(--moth-muted);
+  --text-faint: #68737d;
+  --text-accent: var(--moth-teal);
+  --text-accent-hover: #74fff1;
+  --text-on-accent: #080a0d;
+  --text-error: #ff676a;
+  --text-warning: #ffb347;
+  --text-success: var(--moth-teal);
+  --text-selection: rgba(24, 213, 195, 0.23);
+  --text-highlight-bg: rgba(255, 59, 63, 0.25);
+
+  --interactive-normal: var(--moth-raised);
+  --interactive-hover: #1a2028;
+  --interactive-accent: var(--moth-red);
+  --interactive-accent-hover: #ff6266;
+  --interactive-accent-hsl: 359, 100%, 62%;
+  --interactive-success: var(--moth-teal);
+
+  --icon-color: #aab3ba;
+  --icon-color-hover: var(--moth-teal);
+  --icon-color-active: var(--moth-red);
+  --nav-item-color: #b7c0c6;
+  --nav-item-color-hover: var(--moth-white);
+  --nav-item-color-active: var(--moth-white);
+  --nav-item-background-hover: rgba(24, 213, 195, 0.07);
+  --nav-item-background-active: rgba(255, 59, 63, 0.13);
+
+  --titlebar-background: #07090b;
+  --titlebar-background-focused: #090b0e;
+  --tab-container-background: #090b0e;
+  --tab-text-color: var(--moth-muted);
+  --tab-text-color-active: var(--moth-white);
+  --tab-outline-color: var(--moth-border);
+
+  --code-background: #0c1014;
+  --code-normal: #d8e0e4;
+  --code-comment: #6f7b84;
+  --code-function: var(--moth-teal);
+  --code-important: var(--moth-red);
+  --code-keyword: #ff6f72;
+  --code-operator: #93fff4;
+  --code-property: #71d9ff;
+  --code-punctuation: #aeb8bf;
+  --code-string: #a8e66b;
+  --code-tag: var(--moth-red);
+  --code-value: #f1c86a;
+
+  --blockquote-border-color: var(--moth-red);
+  --embed-border-start: 2px solid var(--moth-teal-dim);
+  --link-color: var(--moth-teal);
+  --link-color-hover: #75fff1;
+  --link-external-color: #70d8ff;
+  --link-unresolved-color: #ff7477;
+  --tag-color: var(--moth-teal);
+  --tag-background: rgba(24, 213, 195, 0.09);
+  --tag-border-color: var(--moth-teal-dim);
+  --tag-color-hover: #080a0d;
+  --tag-background-hover: var(--moth-teal);
+
+  --graph-line: #35414b;
+  --graph-node: var(--moth-white);
+  --graph-node-focused: var(--moth-red);
+  --graph-node-tag: var(--moth-teal);
+  --graph-node-attachment: #71d9ff;
+  --graph-node-unresolved: #755154;
+
+  --font-interface-theme: "DejaVu Sans", "Noto Sans", sans-serif;
+  --font-text-theme: "DejaVu Sans", "Noto Sans", sans-serif;
+  --font-monospace-theme: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  --radius-s: 3px;
+  --radius-m: 5px;
+  --radius-l: 7px;
+}
+
+body.theme-dark .workspace {
+  background:
+    radial-gradient(circle at 88% 8%, rgba(24, 213, 195, 0.045), transparent 24rem),
+    var(--moth-black);
+}
+
+body.theme-dark .workspace-ribbon,
+body.theme-dark .side-dock-ribbon {
+  background: #07090b;
+  border-color: var(--moth-border);
+}
+
+body.theme-dark .workspace-tab-header.is-active {
+  box-shadow: inset 0 -2px 0 var(--moth-red);
+}
+
+body.theme-dark .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+  color: var(--moth-red);
+}
+
+body.theme-dark .nav-file-title.is-active,
+body.theme-dark .nav-folder-title.is-active {
+  border-left: 2px solid var(--moth-red);
+}
+
+body.theme-dark .nav-folder-collapse-indicator {
+  color: var(--moth-teal-dim);
+}
+
+body.theme-dark .view-header-title,
+body.theme-dark .inline-title {
+  color: var(--moth-white);
+  letter-spacing: 0.025em;
+}
+
+body.theme-dark .inline-title {
+  border-bottom: 1px solid var(--moth-border);
+  padding-bottom: 0.35em;
+}
+
+body.theme-dark .markdown-rendered h1,
+body.theme-dark .cm-header-1 {
+  color: var(--moth-white);
+  text-shadow: 0 0 18px rgba(24, 213, 195, 0.1);
+}
+
+body.theme-dark .markdown-rendered h2,
+body.theme-dark .cm-header-2 {
+  color: var(--moth-red);
+}
+
+body.theme-dark .markdown-rendered h3,
+body.theme-dark .cm-header-3 {
+  color: var(--moth-teal);
+}
+
+body.theme-dark .markdown-rendered hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--moth-red), var(--moth-teal), transparent);
+}
+
+body.theme-dark blockquote {
+  background: linear-gradient(90deg, rgba(255, 59, 63, 0.08), transparent);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+body.theme-dark :not(pre) > code,
+body.theme-dark .cm-inline-code {
+  border: 1px solid #27313a;
+  color: var(--moth-teal);
+}
+
+body.theme-dark pre {
+  border: 1px solid var(--moth-border);
+  border-left: 2px solid var(--moth-red);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.theme-dark .callout {
+  background: rgba(var(--callout-color), 0.07);
+  border: 1px solid rgba(var(--callout-color), 0.32);
+  border-left-width: 3px;
+}
+
+body.theme-dark input[type="text"],
+body.theme-dark input[type="search"],
+body.theme-dark textarea,
+body.theme-dark .prompt {
+  border: 1px solid var(--moth-border);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+}
+
+body.theme-dark input:focus,
+body.theme-dark textarea:focus {
+  border-color: var(--moth-teal);
+  box-shadow: 0 0 0 2px rgba(24, 213, 195, 0.12);
+}
+
+body.theme-dark button.mod-cta {
+  color: #080a0d;
+  background: var(--moth-red);
+  font-weight: 700;
+}
+
+body.theme-dark .checkbox-container.is-enabled {
+  background-color: var(--moth-red);
+}
+
+body.theme-dark ::-webkit-scrollbar-thumb {
+  background: #303943;
+  border: 2px solid var(--moth-black);
+}
+
+body.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--moth-teal-dim);
+}
+
+body.theme-dark .status-bar {
+  color: var(--moth-muted);
+  background: rgba(8, 10, 13, 0.94);
+  border-color: var(--moth-border);
+}
+
+body.theme-dark .status-bar::before {
+  content: "MOTHLINE // ";
+  color: var(--moth-red);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+body.theme-dark .graph-view.color-fill-highlight,
+body.theme-dark .graph-view.color-fill-focused {
+  color: var(--moth-red);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.theme-dark .workspace-tab-header,
+  body.theme-dark .nav-file-title,
+  body.theme-dark .clickable-icon {
+    transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
+  }
+}

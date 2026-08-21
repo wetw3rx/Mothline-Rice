@@ -1,3 +1,9 @@
+// Shared Mothline window treatment.
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
 // Float Steam child windows, but not the main Steam window.
 window-rule {
     match app-id="steam"

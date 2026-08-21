@@ -7,7 +7,7 @@ binds {
     // https://docs.noctalia.dev/getting-started/keybinds/
 
     Mod+Shift+ESCAPE                     { show-hotkey-overlay; }
-
+    
     Mod+Ctrl+Return repeat=false hotkey-overlay-title="Open Noctalia Launcher" {
     spawn "noctalia" "msg" "panel-toggle" "launcher";
 }
@@ -15,7 +15,7 @@ binds {
     // ─── Applications ───
     Mod+Return                          hotkey-overlay-title="Open Terminal: kitty" { spawn "kitty"; }
     Mod+B                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
-
+   
     Mod+D                               { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
     Mod+Alt+L repeat=false hotkey-overlay-title="Lock Screen: Noctalia v5" { spawn "noctalia" "msg" "session" "lock"; }
