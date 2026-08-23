@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOTHLINE // START</title>
+  <title>SKILGORE // START</title>
   <style>
     :root {
       --bg: #030707;
@@ -49,11 +49,16 @@
       display: grid;
       grid-template-columns: minmax(260px, 390px) 1fr;
       gap: clamp(32px, 5vw, 80px);
-      align-items: center;
+      align-items: start;
       padding: 44px 0;
     }
 
-    .identity { text-align: center; }
+    .identity {
+      position: sticky;
+      top: 50vh;
+      transform: translateY(-50%);
+      text-align: center;
+    }
 
     .moth-wrap {
       position: relative;
@@ -111,7 +116,7 @@
       grid-template-columns: 1fr auto;
       gap: 22px;
       align-items: end;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .clock {
@@ -153,7 +158,7 @@
       display: flex;
       align-items: center;
       height: 48px;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
       padding: 0 15px;
       border: 1px solid var(--line);
       border-radius: 5px;
@@ -168,14 +173,14 @@
 
     .sections {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .section {
       position: relative;
-      min-height: 192px;
-      padding: 21px 20px 17px;
+      min-height: 0;
+      padding: 16px 15px 13px;
       border: 1px solid var(--line);
       border-radius: 5px;
       background: linear-gradient(145deg, rgba(6, 18, 18, .9), rgba(2, 7, 7, .9));
@@ -197,7 +202,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 15px;
+      margin: 0 0 10px;
       color: var(--cyan);
       font-size: .82rem;
       letter-spacing: .1em;
@@ -206,13 +211,13 @@
     .section h2::before { content: "├─"; color: var(--red); }
     .section h2::after { content: ""; height: 1px; flex: 1; background: var(--red); opacity: .8; }
 
-    .links { display: grid; gap: 5px; }
+    .links { display: grid; gap: 2px; }
 
     .links a {
       display: flex;
       align-items: center;
       min-width: 0;
-      padding: 7px 8px;
+      padding: 6px 7px;
       color: var(--white);
       text-decoration: none;
       font-size: .79rem;
@@ -227,8 +232,13 @@
     .footer { margin-top: 20px; color: #4f5d5a; font-size: .62rem; letter-spacing: .08em; text-align: right; }
     .footer .red { color: var(--red); }
 
+    @media (max-width: 1180px) {
+      .sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 860px) {
       .shell { grid-template-columns: 1fr; padding-top: 24px; }
+      .identity { position: static; transform: none; }
       .moth-wrap { width: min(62vw, 320px); }
       .topbar { align-items: stretch; }
     }
@@ -250,7 +260,7 @@
       <div class="moth-wrap">
         <img class="moth" src="moth.png" alt="Red and teal moth">
       </div>
-      <div class="host">user<span class="at">@</span>mothline</div>
+      <div class="host">skilgore<span class="at">@</span>Daedalus</div>
       <div class="status-line">CachyOS <span style="color:var(--red)">•</span> Niri <span style="color:var(--red)">•</span> Noctalia</div>
     </aside>
 
@@ -261,7 +271,7 @@
           <div class="date" id="date">Loading date…</div>
         </div>
         <div class="weather" aria-live="polite">
-          <div class="weather-title" id="weather-title">YOUR CITY</div>
+          <div class="weather-title">FISHERS, IN</div>
           <div class="weather-main" id="weather-main"><span class="temp">--°F</span> <span class="dot">•</span> Loading</div>
           <div class="weather-meta" id="weather-meta">Retrieving current conditions…</div>
         </div>
@@ -274,22 +284,45 @@
 
       <div class="sections">
         <article class="section">
-          <h2>US NAVY VETERAN</h2>
+          <h2>ABODE ~ ABIDE</h2>
           <nav class="links">
-            <a href="https://www.va.gov/">VA.gov</a>
-            <a href="https://www.mynavyhr.navy.mil/">MyNavy HR</a>
-            <a href="https://milconnect.dmdc.osd.mil/milconnect/">MilConnect</a>
-            <a href="https://www.navyfederal.org/">Navy Federal</a>
+            <a href="https://mylogin.freedommortgage.com/">Freedom Mortgage</a>
+            <a href="https://www.duke-energy.com/home/billing">Duke Energy Indiana</a>
+            <a href="https://fishersin.gov/services-resources/city-services/pay-online/">Fishers City Bill Pay</a>
+            <a href="https://kpmcommunities.com/">HOA Management</a>
+            <a href="https://www.irs.gov/payments/online-account-for-individuals">IRS Online Account</a>
+            <a href="https://www.att.com/my/">AT&amp;T</a>
+            <a href="https://account.t-mobile.com/signin/v2/">T-Mobile</a>
           </nav>
         </article>
 
         <article class="section">
-          <h2>GAMING</h2>
+          <h2>HOMELAB</h2>
+          <nav class="links">
+            <a href="http://192.168.0.20:3000">RednekTek</a>
+            <a href="http://192.168.0.20:3002">FAM Calendar</a>
+            <a href="http://192.168.0.20:3001">Uptime Kuma</a>
+            <a href="http://192.168.0.20:3000/docs/">Field Library</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>US NAVY VETERAN</h2>
+          <nav class="links">
+            <a href="https://www.va.gov/">VA.gov</a>
+            <a href="https://milconnect.dmdc.osd.mil/milconnect/">MilConnect</a>
+            <a href="https://www.dfas.mil/">DFAS</a>
+            <a href="https://www.legion.org/">American Legion</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>STATE OF PLAY</h2>
           <nav class="links">
             <a href="https://store.steampowered.com/">Steam</a>
             <a href="https://www.protondb.com/">ProtonDB</a>
             <a href="https://www.pcgamingwiki.com/">PCGamingWiki</a>
-            <a href="https://www.nexusmods.com/">Nexus Mods</a>
+            <a href="https://www.wemod.com/">WeMod</a>
           </nav>
         </article>
 
@@ -298,6 +331,7 @@
           <nav class="links">
             <a href="https://mail.google.com/">Gmail</a>
             <a href="https://drive.google.com/">Google Drive</a>
+            <a href="https://www.dropbox.com/home">Dropbox</a>
             <a href="https://www.youtube.com/">YouTube</a>
             <a href="https://www.reddit.com/">Reddit</a>
           </nav>
@@ -307,9 +341,8 @@
           <h2>WORK</h2>
           <nav class="links">
             <a href="https://www.microsoft365.com/">Microsoft 365</a>
-            <a href="https://outlook.office.com/mail/">Outlook</a>
             <a href="https://teams.microsoft.com/">Microsoft Teams</a>
-            <a href="https://www.linkedin.com/">LinkedIn</a>
+            <a href="https://kpskconsulting.com/">KPSK Consulting</a>
           </nav>
         </article>
 
@@ -322,6 +355,8 @@
             <a href="https://www.bleepingcomputer.com/">BleepingComputer</a>
             <a href="https://krebsonsecurity.com/">Krebs on Security</a>
             <a href="https://www.exploit-db.com/">Exploit Database</a>
+            <a href="https://www.youtube.com/@DistroTube">DistroTube</a>
+            <a href="https://www.youtube.com/@NetworkChuck">NetworkChuck</a>
           </nav>
         </article>
 
@@ -334,6 +369,12 @@
             <a href="https://developer.mozilla.org/">MDN Web Docs</a>
             <a href="https://devdocs.io/">DevDocs</a>
             <a href="https://wiki.archlinux.org/">ArchWiki</a>
+            <a href="https://wiki.cachyos.org/">CachyOS Wiki</a>
+            <a href="https://wiki.cachyos.org/configuration/gaming/">CachyOS Gaming Guide</a>
+            <a href="https://github.com/niri-wm/niri/wiki">Niri Documentation</a>
+            <a href="https://docs.noctalia.dev/noctalia/">Noctalia v5 Documentation</a>
+            <a href="https://archlinux.org/packages/">Arch Package Search</a>
+            <a href="https://flathub.org/">Flathub</a>
           </nav>
         </article>
       </div>
@@ -343,12 +384,7 @@
   </main>
 
   <script>
-    // Public defaults are deliberately generic. Set these four values locally.
-    const weatherCity = "YOUR CITY";
-    const weatherLatitude = 0;
-    const weatherLongitude = 0;
-    const clockZone = "UTC";
-    document.getElementById("weather-title").textContent = weatherCity;
+    const clockZone = "America/Indiana/Indianapolis";
 
     function updateClock() {
       const now = new Date();
@@ -377,7 +413,7 @@
       const main = document.getElementById("weather-main");
       const meta = document.getElementById("weather-meta");
       try {
-        const endpoint = `https://api.open-meteo.com/v1/forecast?latitude=${weatherLatitude}&longitude=${weatherLongitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=${encodeURIComponent(clockZone)}`;
+        const endpoint = "https://api.open-meteo.com/v1/forecast?latitude=39.9568&longitude=-86.0133&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FIndiana%2FIndianapolis";
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error("Weather service unavailable");
         const { current } = await response.json();
