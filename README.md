@@ -116,8 +116,26 @@ Additional guides are available in `docs/`:
 - `Mothline-Tips-and-Tricks-Niri-Fullscreen.pdf`
 
 The SDDM source tree is included under `config/sddm-mothline/`. The main
-installer stages it beneath `~/.local/share/mothline-sddm` rather than
-silently modifying system-wide SDDM directories with elevated privileges.
+installer first stages it beneath `~/.local/share/mothline-sddm`, then offers
+an explicit opt-in system installation. Declining leaves the staged copy intact
+for later review.
+
+The privileged installer resolves theme assets relative to its own file
+location rather than using `$HOME`, because sudo may change `$HOME` to
+`/root`. It backs up an existing installed theme, applies root ownership and
+safe permissions, verifies essential files, and offers to configure SDDM. It
+does not restart SDDM automatically; save active work and reboot or restart the
+display manager only after verification.
+
+Manual system installation:
+
+```bash
+sudo "$HOME/.local/share/mothline-sddm/install.sh"
+```
+
+A failed sudo authentication or source validation must not be treated as a
+successful installation. Confirm the installed theme and active SDDM
+configuration before rebooting.
 
 ## Backup
 
