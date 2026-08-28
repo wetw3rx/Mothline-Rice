@@ -92,5 +92,18 @@ print "Start page: file://$HOME/.local/share/startpage/start.html"
 print "Fluxer CSS: $HOME/.config/fluxer/mothline-fluxer-canary.css"
 print "Obsidian CSS snippet: $HOME/.config/obsidian/snippets/mothline.css"
 print "SDDM theme staged at: $HOME/.local/share/mothline-sddm"
+print
+print "System-wide SDDM installation requires administrator privileges."
+print "The bundled installer resolves assets relative to itself and does not rely on root's HOME."
+print "It will not restart SDDM automatically."
+print -n "Install the Mothline SDDM theme system-wide now? [y/N] "
+read -r sddm_answer
+if [[ "$sddm_answer" == [Yy] ]]; then
+    sudo "$HOME/.local/share/mothline-sddm/install.sh"
+else
+    print "SDDM system installation skipped."
+    print "Later run: sudo \"$HOME/.local/share/mothline-sddm/install.sh\""
+fi
+print
 print "Run: noctalia msg templates-apply after enabling GTK 3/4 and KColorScheme templates."
 print "Log out and back in to apply Qt platform-theme or PATH changes."
