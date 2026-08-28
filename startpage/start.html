@@ -78,18 +78,73 @@
       box-shadow: 0 0 55px rgba(25, 215, 193, .1), inset 0 0 40px rgba(255, 38, 56, .06);
     }
 
+    .kana-mark {
+      position: absolute;
+      z-index: 2;
+      left: auto;
+      right: calc(100% + 1.25rem);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ff4552;
+      font-family:
+        "Noto Sans CJK JP",
+        "Noto Sans JP",
+        "JetBrainsMono Nerd Font Mono",
+        sans-serif;
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      font-weight: 800;
+      line-height: .9;
+      letter-spacing: 0;
+      gap: .04em;
+      text-shadow:
+        0 0 8px rgba(255, 38, 56, .68),
+        0 0 20px rgba(255, 38, 56, .22);
+      user-select: none;
+      pointer-events: none;
+      animation: kana-signal 5s ease-in-out infinite;
+    }
+
+    @keyframes kana-signal {
+      50% {
+        color: #ff6571;
+        text-shadow:
+          0 0 12px rgba(255, 38, 56, .82),
+          0 0 28px rgba(255, 38, 56, .34);
+        transform: translateY(calc(-50% - 3px));
+      }
+    }
+
     .moth {
       position: relative;
       z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(25, 215, 193, .18));
+      filter:
+        grayscale(1)
+        sepia(.34)
+        saturate(.72)
+        brightness(1.72)
+        contrast(1.04)
+        drop-shadow(0 0 13px rgba(238, 225, 194, .28));
       animation: breathe 5s ease-in-out infinite;
     }
 
     @keyframes breathe {
-      50% { filter: drop-shadow(0 0 18px rgba(255, 38, 56, .22)); transform: translateY(-3px); }
+      50% {
+        filter:
+          grayscale(1)
+          sepia(.38)
+          saturate(.78)
+          brightness(1.86)
+          contrast(1.03)
+          drop-shadow(0 0 20px rgba(238, 225, 194, .38));
+        transform: translateY(-3px);
+      }
     }
 
     .host {
@@ -173,12 +228,13 @@
 
     .sections {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 14px;
     }
 
     .section {
       position: relative;
+      grid-column: span 2;
       min-height: 0;
       padding: 16px 15px 13px;
       border: 1px solid var(--line);
@@ -197,6 +253,9 @@
       border: 1px solid rgba(25, 215, 193, .12);
       transform: rotate(45deg);
     }
+
+    .section:nth-child(7) { grid-column: 2 / span 2; }
+    .section:nth-child(8) { grid-column: 4 / span 2; }
 
     .section h2 {
       display: flex;
@@ -234,31 +293,56 @@
 
     @media (max-width: 1180px) {
       .sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section,
+      .section:nth-child(7),
+      .section:nth-child(8) { grid-column: auto; }
     }
 
     @media (max-width: 860px) {
       .shell { grid-template-columns: 1fr; padding-top: 24px; }
+      .kana-mark {
+        left: auto;
+        right: calc(100% + .8rem);
+      }
       .identity { position: static; transform: none; }
       .moth-wrap { width: min(62vw, 320px); }
+      .kana-mark {
+        left: auto;
+        right: calc(100% + .55rem);
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+      }
       .topbar { align-items: stretch; }
     }
 
     @media (max-width: 610px) {
       .shell { width: min(100% - 24px, 520px); }
       .topbar, .sections { grid-template-columns: 1fr; }
+      .section,
+      .section:nth-child(7),
+      .section:nth-child(8) { grid-column: auto; }
       .clock-block { text-align: center; }
       .weather { min-width: 0; }
       .section { min-height: 0; }
     }
 
-    @media (prefers-reduced-motion: reduce) { .moth { animation: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .moth,
+      .kana-mark { animation: none; }
+    }
   </style>
 </head>
 <body>
   <main class="shell">
     <aside class="identity">
       <div class="moth-wrap">
-        <img class="moth" src="moth.png" alt="Red and teal moth">
+        <div class="kana-mark" lang="ja" aria-label="Mothline in Japanese katakana">
+          <span>モ</span>
+          <span>ス</span>
+          <span>ラ</span>
+          <span>イ</span>
+          <span>ン</span>
+        </div>
+        <img class="moth" src="moth.png" alt="Bright bone Mothline emblem">
       </div>
       <div class="host">skilgore<span class="at">@</span>Daedalus</div>
       <div class="status-line">CachyOS <span style="color:var(--red)">•</span> Niri <span style="color:var(--red)">•</span> Noctalia</div>
@@ -284,49 +368,6 @@
 
       <div class="sections">
         <article class="section">
-          <h2>ABODE ~ ABIDE</h2>
-          <nav class="links">
-            <a href="https://mylogin.freedommortgage.com/">Freedom Mortgage</a>
-            <a href="https://www.duke-energy.com/home/billing">Duke Energy Indiana</a>
-            <a href="https://fishersin.gov/services-resources/city-services/pay-online/">Fishers City Bill Pay</a>
-            <a href="https://kpmcommunities.com/">HOA Management</a>
-            <a href="https://www.irs.gov/payments/online-account-for-individuals">IRS Online Account</a>
-            <a href="https://www.att.com/my/">AT&amp;T</a>
-            <a href="https://account.t-mobile.com/signin/v2/">T-Mobile</a>
-          </nav>
-        </article>
-
-        <article class="section">
-          <h2>HOMELAB</h2>
-          <nav class="links">
-            <a href="http://192.168.0.20:3000">RednekTek</a>
-            <a href="http://192.168.0.20:3002">FAM Calendar</a>
-            <a href="http://192.168.0.20:3001">Uptime Kuma</a>
-            <a href="http://192.168.0.20:3000/docs/">Field Library</a>
-          </nav>
-        </article>
-
-        <article class="section">
-          <h2>US NAVY VETERAN</h2>
-          <nav class="links">
-            <a href="https://www.va.gov/">VA.gov</a>
-            <a href="https://milconnect.dmdc.osd.mil/milconnect/">MilConnect</a>
-            <a href="https://www.dfas.mil/">DFAS</a>
-            <a href="https://www.legion.org/">American Legion</a>
-          </nav>
-        </article>
-
-        <article class="section">
-          <h2>STATE OF PLAY</h2>
-          <nav class="links">
-            <a href="https://store.steampowered.com/">Steam</a>
-            <a href="https://www.protondb.com/">ProtonDB</a>
-            <a href="https://www.pcgamingwiki.com/">PCGamingWiki</a>
-            <a href="https://www.wemod.com/">WeMod</a>
-          </nav>
-        </article>
-
-        <article class="section">
           <h2>PERSONAL</h2>
           <nav class="links">
             <a href="https://mail.google.com/">Gmail</a>
@@ -347,16 +388,25 @@
         </article>
 
         <article class="section">
-          <h2>HACKING</h2>
+          <h2>ABODE ~ ABIDE</h2>
           <nav class="links">
-            <a href="https://defcon.org/">DEF CON</a>
-            <a href="https://www.blackhat.com/">Black Hat</a>
-            <a href="https://thehackernews.com/">The Hacker News</a>
-            <a href="https://www.bleepingcomputer.com/">BleepingComputer</a>
-            <a href="https://krebsonsecurity.com/">Krebs on Security</a>
-            <a href="https://www.exploit-db.com/">Exploit Database</a>
-            <a href="https://www.youtube.com/@DistroTube">DistroTube</a>
-            <a href="https://www.youtube.com/@NetworkChuck">NetworkChuck</a>
+            <a href="https://mylogin.freedommortgage.com/">Freedom Mortgage</a>
+            <a href="https://www.duke-energy.com/home/billing">Duke Energy Indiana</a>
+            <a href="https://fishersin.gov/services-resources/city-services/pay-online/">Fishers City Bill Pay</a>
+            <a href="https://kpmcommunities.com/">HOA Management</a>
+            <a href="https://www.irs.gov/payments/online-account-for-individuals">IRS Online Account</a>
+            <a href="https://www.att.com/my/">AT&amp;T</a>
+            <a href="https://account.t-mobile.com/signin/v2/">T-Mobile</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>US NAVY VETERAN</h2>
+          <nav class="links">
+            <a href="https://www.va.gov/">VA.gov</a>
+            <a href="https://milconnect.dmdc.osd.mil/milconnect/">MilConnect</a>
+            <a href="https://www.dfas.mil/">DFAS</a>
+            <a href="https://www.legion.org/">American Legion</a>
           </nav>
         </article>
 
@@ -375,6 +425,40 @@
             <a href="https://docs.noctalia.dev/noctalia/">Noctalia v5 Documentation</a>
             <a href="https://archlinux.org/packages/">Arch Package Search</a>
             <a href="https://flathub.org/">Flathub</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>HACKING</h2>
+          <nav class="links">
+            <a href="https://defcon.org/">DEF CON</a>
+            <a href="https://www.blackhat.com/">Black Hat</a>
+            <a href="https://thehackernews.com/">The Hacker News</a>
+            <a href="https://www.bleepingcomputer.com/">BleepingComputer</a>
+            <a href="https://krebsonsecurity.com/">Krebs on Security</a>
+            <a href="https://www.exploit-db.com/">Exploit Database</a>
+            <a href="https://www.youtube.com/@DistroTube">DistroTube</a>
+            <a href="https://www.youtube.com/@NetworkChuck">NetworkChuck</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>HOMELAB</h2>
+          <nav class="links">
+            <a href="http://192.168.0.20:3000">RednekTek</a>
+            <a href="http://192.168.0.20:3002">FAM Calendar</a>
+            <a href="http://192.168.0.20:3001">Uptime Kuma</a>
+            <a href="http://192.168.0.20:3000/docs/">Field Library</a>
+          </nav>
+        </article>
+
+        <article class="section">
+          <h2>STATE OF PLAY</h2>
+          <nav class="links">
+            <a href="https://store.steampowered.com/">Steam</a>
+            <a href="https://www.protondb.com/">ProtonDB</a>
+            <a href="https://www.pcgamingwiki.com/">PCGamingWiki</a>
+            <a href="https://www.wemod.com/">WeMod</a>
           </nav>
         </article>
       </div>
