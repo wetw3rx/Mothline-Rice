@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pkill -x noctalia 2>/dev/null || true
+sleep 1
+
+nohup noctalia \
+  >"${XDG_STATE_HOME:-$HOME/.local/state}/noctalia/restart.log" \
+  2>&1 </dev/null &

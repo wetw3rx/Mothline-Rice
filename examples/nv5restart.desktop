@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Nocta v5 Restart
+Comment=Restart Noctalia v5
+Exec=nocta-v5-restart
+Icon=video-display
+Terminal=false
+Categories=Utility;
+StartupNotify=false
