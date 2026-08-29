@@ -6,7 +6,7 @@ repo_dir="${0:A:h}"
 stamp="$(date +%Y%m%d-%H%M%S)"
 backup_dir="$HOME/.local/state/mothline-backups/install-$stamp"
 
-print "Mothline will install Niri, Noctalia, GTK, Qt6ct, Kitty, Fastfetch, Fluxer, Obsidian theme assets, SDDM staging files, and start-page files."
+print "Mothline will install Niri, Noctalia, GTK, Qt6ct, Kitty, Fastfetch, Fluxer, Neovim mail styling, Obsidian theme assets, SDDM staging files, and start-page files."
 print "Existing configuration will be backed up to:"
 print "  $backup_dir"
 print -n "Continue? [y/N] "
@@ -15,7 +15,7 @@ read -r answer
 
 mkdir -p "$backup_dir/config" "$backup_dir/local-share" "$backup_dir/local-bin"
 
-for name in niri noctalia gtk-3.0 gtk-4.0 qt6ct kitty fastfetch fluxer; do
+for name in niri noctalia gtk-3.0 gtk-4.0 qt6ct kitty fastfetch fluxer nvim; do
     if [[ -e "$HOME/.config/$name" ]]; then
         cp -a "$HOME/.config/$name" "$backup_dir/config/$name"
     fi
@@ -50,6 +50,7 @@ mkdir -p \
     "$HOME/.config/kitty" \
     "$HOME/.config/fastfetch" \
     "$HOME/.config/fluxer" \
+    "$HOME/.config/nvim" \
     "$HOME/.config/obsidian/snippets" \
     "$HOME/.local/share/startpage" \
     "$HOME/.local/share/mothline" \
@@ -64,6 +65,7 @@ cp -a "$repo_dir/config/qt6ct/." "$HOME/.config/qt6ct/"
 cp -a "$repo_dir/config/kitty/." "$HOME/.config/kitty/"
 cp -a "$repo_dir/config/fastfetch/." "$HOME/.config/fastfetch/"
 cp -a "$repo_dir/config/fluxer/." "$HOME/.config/fluxer/"
+cp -a "$repo_dir/config/nvim/." "$HOME/.config/nvim/"
 cp -a "$repo_dir/config/obsidian/.obsidian/snippets/mothline.css" "$HOME/.config/obsidian/snippets/mothline.css"
 cp -a "$repo_dir/config/sddm-mothline/." "$HOME/.local/share/mothline-sddm/"
 cp -a "$repo_dir/startpage/." "$HOME/.local/share/startpage/"
@@ -90,6 +92,7 @@ print "Mothline installed successfully."
 print "Backup: $backup_dir"
 print "Start page: file://$HOME/.local/share/startpage/start.html"
 print "Fluxer CSS: $HOME/.config/fluxer/mothline-fluxer-canary.css"
+print "Neovim Mothline mail composer: $HOME/.config/nvim"
 print "Obsidian CSS snippet: $HOME/.config/obsidian/snippets/mothline.css"
 print "SDDM theme staged at: $HOME/.local/share/mothline-sddm"
 print "Run: noctalia msg templates-apply after enabling GTK 3/4 and KColorScheme templates."
