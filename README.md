@@ -111,6 +111,8 @@ It runs `niri validate` after installation when Niri is available.
 
 Additional guides are available in `docs/`:
 
+- `Noctalia-v5-Recovery.md` — stuck-toast recovery and **Nocta v5 Restart** launcher
+
 - `Mothline_3-2-1_Backup_Guide.pdf`
 - `Mothline-Backup-and-GitHub-FAQ.pdf`
 - `Mothline-Tips-and-Tricks-Niri-Fullscreen.pdf`
