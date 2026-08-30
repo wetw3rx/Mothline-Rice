@@ -3,12 +3,11 @@
 
   "logo": {
     "type": "kitty",
-    "source": "~/.config/fastfetch/moth.png",
-    "width": 30,
-    "height": 22,
+    "source": "/home/skilgore/.config/fastfetch/mothline-lockup-alpha-v1.png",
+    "width": 44,
     "preserveAspectRatio": true,
     "padding": {
-      "top": 1,
+      "top": 4,
       "left": 1,
       "right": 3
     }
