@@ -47,7 +47,7 @@
       min-height: 100vh;
       margin: auto;
       display: grid;
-      grid-template-columns: minmax(260px, 390px) 1fr;
+      grid-template-columns: minmax(320px, 480px) 1fr;
       gap: clamp(32px, 5vw, 80px);
       align-items: start;
       padding: 44px 0;
@@ -63,92 +63,38 @@
     .moth-wrap {
       position: relative;
       margin: auto;
-      width: min(100%, 390px);
-      aspect-ratio: 1;
+      width: min(100%, 480px);
+      aspect-ratio: 3 / 2;
       display: grid;
       place-items: center;
-    }
-
-    .moth-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 14%;
-      border: 1px solid rgba(25, 215, 193, .22);
-      border-radius: 50%;
-      box-shadow: 0 0 55px rgba(25, 215, 193, .1), inset 0 0 40px rgba(255, 38, 56, .06);
-    }
-
-    .kana-mark {
-      position: absolute;
-      z-index: 2;
-      left: auto;
-      right: calc(100% + 1.25rem);
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #ff4552;
-      font-family:
-        "Noto Sans CJK JP",
-        "Noto Sans JP",
-        "JetBrainsMono Nerd Font Mono",
-        sans-serif;
-      font-size: clamp(2.8rem, 4vw, 4rem);
-      font-weight: 800;
-      line-height: .9;
-      letter-spacing: 0;
-      gap: .04em;
-      text-shadow:
-        0 0 8px rgba(255, 38, 56, .68),
-        0 0 20px rgba(255, 38, 56, .22);
-      user-select: none;
-      pointer-events: none;
-      animation: kana-signal 5s ease-in-out infinite;
-    }
-
-    @keyframes kana-signal {
-      50% {
-        color: #ff6571;
-        text-shadow:
-          0 0 12px rgba(255, 38, 56, .82),
-          0 0 28px rgba(255, 38, 56, .34);
-        transform: translateY(calc(-50% - 3px));
-      }
     }
 
     .moth {
       position: relative;
       z-index: 1;
+      display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
-      filter:
-        grayscale(1)
-        sepia(.34)
-        saturate(.72)
-        brightness(1.72)
-        contrast(1.04)
-        drop-shadow(0 0 13px rgba(238, 225, 194, .28));
+      filter: drop-shadow(0 0 15px rgba(255, 38, 56, .12));
       animation: breathe 5s ease-in-out infinite;
     }
 
     @keyframes breathe {
       50% {
-        filter:
-          grayscale(1)
-          sepia(.38)
-          saturate(.78)
-          brightness(1.86)
-          contrast(1.03)
-          drop-shadow(0 0 20px rgba(238, 225, 194, .38));
-        transform: translateY(-3px);
+        transform: translateY(-3px) scale(1.01);
+        filter: drop-shadow(0 0 20px rgba(255, 38, 56, .17));
       }
     }
 
+    .identity-meta {
+      width: 78%;
+      margin: -20px 0 0 auto;
+      text-align: center;
+    }
+
     .host {
-      margin-top: -20px;
+      margin-top: 0;
       color: var(--cyan);
       font-size: clamp(1rem, 2vw, 1.22rem);
       font-weight: 700;
@@ -300,17 +246,8 @@
 
     @media (max-width: 860px) {
       .shell { grid-template-columns: 1fr; padding-top: 24px; }
-      .kana-mark {
-        left: auto;
-        right: calc(100% + .8rem);
-      }
       .identity { position: static; transform: none; }
-      .moth-wrap { width: min(62vw, 320px); }
-      .kana-mark {
-        left: auto;
-        right: calc(100% + .55rem);
-        font-size: clamp(1.25rem, 5vw, 1.75rem);
-      }
+      .moth-wrap { width: min(92vw, 520px); }
       .topbar { align-items: stretch; }
     }
 
@@ -326,8 +263,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .moth,
-      .kana-mark { animation: none; }
+      .moth { animation: none; }
     }
   </style>
 </head>
@@ -335,17 +271,16 @@
   <main class="shell">
     <aside class="identity">
       <div class="moth-wrap">
-        <div class="kana-mark" lang="ja" aria-label="Mothline in Japanese katakana">
-          <span>モ</span>
-          <span>ス</span>
-          <span>ラ</span>
-          <span>イ</span>
-          <span>ン</span>
-        </div>
-        <img class="moth" src="moth.png" alt="Bright bone Mothline emblem">
+        <img
+          class="moth"
+          src="mothline-lockup-alpha-v1.png"
+          alt="Mothline death-moth emblem with vertical red kana"
+        >
       </div>
-      <div class="host">skilgore<span class="at">@</span>Daedalus</div>
-      <div class="status-line">CachyOS <span style="color:var(--red)">•</span> Niri <span style="color:var(--red)">•</span> Noctalia</div>
+      <div class="identity-meta">
+        <div class="host">skilgore<span class="at">@</span>DAEDALUS</div>
+        <div class="status-line">CachyOS <span style="color:var(--red)">•</span> Niri <span style="color:var(--red)">•</span> Noctalia</div>
+      </div>
     </aside>
 
     <section class="dashboard">
@@ -375,6 +310,8 @@
             <a href="https://www.dropbox.com/home">Dropbox</a>
             <a href="https://www.youtube.com/">YouTube</a>
             <a href="https://www.reddit.com/">Reddit</a>
+            <a href="https://substack.com/home">Substack</a>
+            <a href="https://www.ancestry.com/">Ancestry</a>
           </nav>
         </article>
 
@@ -384,6 +321,7 @@
             <a href="https://www.microsoft365.com/">Microsoft 365</a>
             <a href="https://teams.microsoft.com/">Microsoft Teams</a>
             <a href="https://kpskconsulting.com/">KPSK Consulting</a>
+            <a href="https://divingcrush.com/">DivingCrush</a>
           </nav>
         </article>
 
@@ -414,7 +352,6 @@
           <h2>DEVELOPMENT</h2>
           <nav class="links">
             <a href="https://github.com/">GitHub</a>
-            <a href="https://gitlab.com/">GitLab</a>
             <a href="https://stackoverflow.com/">Stack Overflow</a>
             <a href="https://developer.mozilla.org/">MDN Web Docs</a>
             <a href="https://devdocs.io/">DevDocs</a>
@@ -449,6 +386,7 @@
             <a href="http://192.168.0.20:3002">FAM Calendar</a>
             <a href="http://192.168.0.20:3001">Uptime Kuma</a>
             <a href="http://192.168.0.20:3000/docs/">Field Library</a>
+            <a href="http://192.168.0.1/">10hauser_G8 Local Management</a>
           </nav>
         </article>
 
@@ -459,6 +397,8 @@
             <a href="https://www.protondb.com/">ProtonDB</a>
             <a href="https://www.pcgamingwiki.com/">PCGamingWiki</a>
             <a href="https://www.wemod.com/">WeMod</a>
+            <a href="https://lutris.net/">Lutris</a>
+            <a href="https://www.rockstargames.com/">Rockstar Games</a>
           </nav>
         </article>
       </div>
