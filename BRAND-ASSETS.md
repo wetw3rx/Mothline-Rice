@@ -35,8 +35,8 @@ Never enlarge a smaller export when a larger approved export exists.
 Do not display the full lockup below 256 pixels wide. Below that size, its
 kana and fine-line details lose clarity.
 
-Launchers, favicons, tray icons, and compact UI must use the future approved
-moth-only micro mark from job #5. Do not crop an icon from the full lockup.
+Below the full lockup's minimum size, use the approved standalone death's-head moth mark.
+Optimized launcher, favicon, tray, and micro-size exports remain reserved for job #5.
 
 ## Clear space and placement
 
@@ -110,5 +110,22 @@ assets/brand/
         └── README.md
 ```
 
-The icons directory remains reserved until job #5 produces and verifies the
-standalone moth and micro-size exports.
+The icons directory remains reserved for job #5, which will produce and verify
+optimized micro-size and launcher/favicon exports.
+
+## Standalone death's-head moth mark — job #4
+
+`assets/brand/masters/mothline-deaths-head-moth-alpha-master-v1.png`
+
+The 1170×840 transparent master contains the centered death's-head moth and fine-line teal circle without kana or wordmark.
+
+| Export | Dimensions |
+|---|---:|
+| `mothline-deaths-head-moth-alpha-1024w-v1.png` | 1024×735 |
+| `mothline-deaths-head-moth-alpha-768w-v1.png` | 768×551 |
+| `mothline-deaths-head-moth-alpha-512w-v1.png` | 512×368 |
+| `mothline-deaths-head-moth-alpha-256w-v1.png` | 256×184 |
+
+Master SHA-256: `8511af5ce34d192a5a07500039108b4542decce05a08f3e992755012f5f5cd6d`
+
+This standalone mark completes job #4. The `icons/` directory remains reserved for the optimized micro-mark package in job #5.
