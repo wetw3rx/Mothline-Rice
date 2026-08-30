@@ -129,3 +129,15 @@ The 1170×840 transparent master contains the centered death's-head moth and fin
 Master SHA-256: `8511af5ce34d192a5a07500039108b4542decce05a08f3e992755012f5f5cd6d`
 
 This standalone mark completes job #4. The `icons/` directory remains reserved for the optimized micro-mark package in job #5.
+
+## Responsive icon package — job #5
+
+The responsive icon system uses the square moth launcher mark at 256, 128, and 64 pixels. At 48, 32, and 16 pixels it switches to the simplified white skull with teal ring for reliable legibility.
+
+The multi-frame `mothline-favicon-v1.ico` contains 16, 32, and 48 pixel micro-skull frames. See `assets/brand/exports/icons/README.md` for placement rules.
+
+Launcher master SHA-256: `8e52a7773fa3da708aab2aea7bdaf5c95738490820beb775c23a16a913736c99`
+
+Micro-skull master SHA-256: `458a14988a58c9bbe426bd55f08dc48484f20bf6d9e26b5827fd6aa1e6f5de45`
+
+This package completes logo-consistency job #5.
