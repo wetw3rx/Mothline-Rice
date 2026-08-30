@@ -98,3 +98,37 @@ Restore the selected approved backup over both canonical and live locations, the
 ---
 
 **[ VERIFY THE SIGNAL // PRESERVE THE SOURCE ]**
+
+## Scrapnode canonical brand deployment — August 30, 2026
+
+Status: **COMPLETE**
+
+- Live page: `http://192.168.0.20:3000/`
+- Runtime: `vinext` in Docker Compose service `rednektek-intranet`
+- Source root: `/opt/rednektek/intranet`
+- Canonical lockup: `/opt/rednektek/intranet/public/mothline-logo.png`
+- Responsive favicon: `/opt/rednektek/intranet/public/mothline-favicon.ico`
+- Metadata source: `/opt/rednektek/intranet/app/layout.tsx`
+- Recovery backup: `/opt/rednektek/intranet/Backups/mothline-favicon-20260830-134930`
+
+### Acceptance results
+
+- Page HTTP status: `200`
+- Favicon HTTP status: `200`
+- Rendered metadata references `/mothline-favicon.ico`
+- Favicon contains 16×16, 32×32, and 48×48 frames
+- Canonical logo SHA-256: `0ed63c0bf724ecaa3be550595d2f5805ee073af4db1d911f725b5416f4d740cc`
+- Favicon SHA-256: `e8ede2587ac003292971a4473d6480ce57a619f3b017ad2e2d29729b30a9f170`
+
+### Rebuild command
+
+```bash
+cd /opt/rednektek/intranet
+sudo docker compose -f compose.scrapnode.yaml up -d --build
+```
+
+### Rollback
+
+Restore `layout.tsx` and `favicon.svg` from the recorded backup directory, then run the rebuild command above.
+
+This deployment completes the network-wide Mothline logo-consistency rollout.
