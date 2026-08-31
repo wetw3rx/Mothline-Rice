@@ -24,3 +24,11 @@ config/noctalia/calendar.toml
 
 # Machine-generated GUI state
 *.lock
+
+# Mail and editor private state
+config/neomutt/accounts/
+config/neomutt/signatures/
+*.mbox
+*.maildir
+*.eml
+*.session

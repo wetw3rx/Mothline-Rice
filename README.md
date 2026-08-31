@@ -194,3 +194,22 @@ or screenshots with personal information.
 ## License
 
 MIT
+
+## NeoMutt and Neovim mail composer
+
+Mothline includes a portable Neovim mail-composition profile under `config/nvim/`.
+
+It provides the native charcoal, red, and teal colorscheme; spelling and 72-column email formatting; styled headers, replies, and signatures; a `MOTHLINE // MAIL COMPOSER` statusline; Which-Key; Zen Mode; and pinned plugin versions.
+
+The installer backs up an existing `~/.config/nvim`. Use the printed backup path with `restore.zsh` to recover the earlier configuration.
+
+NeoMutt accounts are deliberately excluded. Configure them locally, then set:
+
+```neomutt
+set editor="/usr/bin/nvim"
+set edit_headers=yes
+```
+
+Saving in Neovim returns to NeoMutt; it does not send. Review the message in NeoMutt before pressing `y`.
+
+Never commit mail accounts, passwords, OAuth data, signatures, Bitwarden sessions, mailboxes, caches, or temporary drafts.
