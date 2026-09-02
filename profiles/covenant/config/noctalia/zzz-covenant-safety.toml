@@ -1,0 +1,6 @@
+# COVENANT recovery-safe lock policy.
+[lockscreen]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false

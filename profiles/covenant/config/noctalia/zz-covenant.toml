@@ -1,0 +1,594 @@
+[backdrop]
+blur_intensity = 0.0
+
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    background_opacity = 0.0
+    border = "primary"
+    border_width = 1.0
+    capsule = true
+    capsule_border = "outline"
+    capsule_fill = "surface_variant"
+    capsule_foreground = "on_surface"
+    capsule_opacity = 0.88
+    capsule_padding = 6
+    capsule_radius = 7.0
+    capsule_thickness = 0.78000000000000003
+    center = [ "volume", "audio_visualizer", "spacer_2", "media", "spacer_3", "weather" ]
+    color = "on_surface"
+    concave_edge_corners = false
+    contact_shadow = true
+    enabled = true
+    end = [
+        "mail_2",
+        "spacer_8",
+        "network",
+        "network_tx",
+        "network_rx",
+        "spacer_7",
+        "clipboard",
+        "spacer_10",
+        "tray",
+        "spacer_8",
+        "power_profile",
+        "control-center",
+        "clock"
+    ]
+    font_family = "FantasqueSansM Nerd Font Mono"
+    font_weight = 600
+    hover_highlight = true
+    icon_color = "secondary"
+    layer = "top"
+    margin_edge = 8
+    margin_ends = 16
+    padding = 8
+    panel_overlap = 1
+    position = "top"
+    radius = 10
+    reserve_space = true
+    shadow = true
+    start = [ "launcher", "spacer_5", "workspaces", "spacer_6", "group:g1" ]
+    thickness = 32
+    widget_spacing = 3
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "on_secondary"
+        id = "g1"
+        members = [ "GPU_Temp", "GPU_Usage", "GPU_Vram" ]
+        opacity = 0.05000000074505806
+        padding = 6.0
+
+[battery.device."/org/freedesktop/UPower/devices/battery_corsair_void_14_battery"]
+warning_threshold = 10
+
+[calendar]
+enabled = true
+
+    [calendar.account.maingmail]
+    name = "Primary Calendar"
+    type = "google"
+
+    [calendar.account.personal_google]
+    calendars = [ "you@example.com" ]
+    enabled = false
+    type = "google"
+
+[control_center]
+show_session_button = true
+show_shortcut_labels = true
+sidebar = "full"
+sidebar_section = "compact"
+width = 700
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[hot_corners]
+enabled = true
+
+[idle]
+behavior_order = [ "lock", "screen-off", "suspend" ]
+pre_action_fade_seconds = 2.0
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660
+
+    [idle.behavior.suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 1800
+
+[location]
+address = "Your City, State"
+
+[lockscreen]
+allow_empty_password = false
+blur_intensity = 0.0
+blurred_desktop = false
+enabled = true
+fingerprint = false
+lock_before_suspend = true
+monitors = []
+tint_intensity = 0.0
+wallpaper = "@HOME@/.local/share/mothline/mothline-lockscreen.png"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@HDMI-A-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1418.0
+    output = "eDP-1"
+    placement_height = 1600.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 206.0
+    box_width = 810.0
+    cx = 468.0
+    cy = 866.0
+    output = "winit"
+    placement_height = 0.0
+    placement_width = 0.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.92000000000000004
+        background_radius = 10.0
+        center_password_text = true
+        input_opacity = 0.95999999999999996
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 420.0
+    cy = 350.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = true
+        background_color = "surface_variant"
+        background_opacity = 0.78000000000000003
+        background_radius = 10.0
+        color = "on_surface"
+        font_family = "JetBrainsMono Nerd Font"
+        shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 384.0
+    box_width = 592.0
+    cx = 1500.0
+    cy = 350.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "calendar"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = true
+        background_color = "surface_variant"
+        background_opacity = 0.78000000000000003
+        background_radius = 10.0
+        color = "on_surface"
+        font_family = "JetBrainsMono Nerd Font"
+        shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 210.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background = true
+        background_color = "surface_variant"
+        background_opacity = 0.71999999999999997
+        background_radius = 10.0
+        color = "on_surface"
+        font_family = "JetBrainsMono Nerd Font"
+        format = """{:%H:%M}
+{:%A, %B %d}"""
+        shadow = true
+
+[notification]
+background_opacity = 0.29999999329447746
+border = false
+collapse_on_dismiss = true
+enable_daemon = true
+history_retention_hours = 2
+layer = "overlay"
+max_visible = 4
+monitors = []
+offset_x = 18
+offset_y = 58
+position = "top_right"
+scale = 1.0
+show_actions = true
+show_app_name = true
+
+[plugin_settings."icefish/phone-connect"]
+custom_image = "@HOME@/.local/share/mothline/moth-avatar.png"
+details_open_near_click = false
+details_placement = "floating"
+device_alias = "PHONE"
+state_update_interval = 71
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+cheatsheet_position = "bottom_left"
+
+[plugin_settings."yuuto/calculator"]
+panel_open_near_click = false
+panel_placement = "floating"
+
+[plugins]
+enabled = [
+    "kenn/keybind-cheatsheet",
+    "yuuto/calculator",
+    "goatnath/spotify-lyrics",
+    "raycursive/niri-displays",
+    "wetw3rx/divingcrush-mail"
+]
+
+[shell]
+avatar_path = "@HOME@/.local/share/mothline/moth-avatar.png"
+blur = false
+button_borders = true
+card_borders = true
+corner_radius_scale = 0.84999999999999998
+external_ip_enabled = true
+font_family = "JetBrainsMono Nerd Font"
+input_borders = true
+polkit_agent = true
+popup_borders = true
+popup_shadows = true
+
+    [shell.launcher]
+    app_grid = false
+    auto_paste = "auto"
+    categories = true
+    compact = true
+    fetch_exchange_rates = true
+    pinned = [
+        "xMON",
+        "bitwarden",
+        "claws-mail",
+        "mothline-mail",
+        "obsidian",
+        "firefox",
+        "spotify-launcher",
+        "fluxer-canary",
+        "arch-update",
+        "org.pwmt.zathura",
+        "nv5restart",
+        "steam",
+        "org.kde.kdeconnect.app",
+        "brave-browser",
+        "piavpn",
+        "naps2"
+    ]
+    provider_prefix = "/"
+    show_app_actions = true
+    show_app_origin_indicator = false
+    show_icons = true
+    sort_by_usage = true
+
+        [shell.launcher.providers.calculator]
+        global = false
+        prefix = "calc"
+
+        [shell.launcher.providers.emoji]
+        global = true
+        prefix = "emo"
+
+        [shell.launcher.providers.session]
+        global = false
+        prefix = "session"
+
+        [shell.launcher.providers.wallpaper]
+        prefix = "wall"
+
+        [shell.launcher.providers.windows]
+        prefix = "win"
+
+    [shell.panel]
+    borders = false
+    clipboard_position = "top_right"
+    control_center_placement = "floating"
+    floating_layer = "top"
+    floating_offset = 8
+    launcher_placement = "floating"
+    launcher_position = "top_left"
+    list_item_background = true
+    open_near_click_launcher = false
+    session_placement = "floating"
+    shadow = false
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+
+    [shell.screen_corners]
+    enabled = true
+
+[storage]
+key_file = ""
+key_source = "secret-service"
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Breeze"
+custom_palette = "Mothline"
+mode = "dark"
+pure_black_dark = true
+source = "custom"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "cava", "gtk3", "kcolorscheme", "kitty", "niri", "scroll" ]
+
+[wallpaper.default]
+path = "@HOME@/.local/share/mothline/Mothline-Mothmoon-Coven-12-FINAL-v1.0.0.png"
+
+[wallpaper.last]
+path = "@HOME@/.local/share/mothline/Mothline-Mothmoon-Coven-12-FINAL-v1.0.0.png"
+
+[wallpaper.monitor.HDMI-A-1]
+fill_color = "primary"
+
+[wallpaper.monitor.eDP-1]
+fill_color = "primary"
+
+[wallpaper.monitors.HDMI-A-1]
+path = "@HOME@/.local/share/mothline/Mothline-Mothmoon-Coven-12-FINAL-v1.0.0.png"
+
+[wallpaper.monitors.eDP-1]
+path = "@HOME@/.local/share/mothline/Mothline-Mothmoon-Coven-12-FINAL-v1.0.0.png"
+
+[weather]
+unit = "imperial"
+
+[widget.GPU_Temp]
+stat = "cpu_temp"
+type = "sysmon"
+
+[widget.GPU_Usage]
+type = "sysmon"
+
+[widget.GPU_Vram]
+stat = "gpu_vram"
+type = "sysmon"
+
+[widget.audio_visualizer]
+color_1 = "error"
+color_2 = "error"
+icon_color = "on_secondary"
+
+[widget.bar]
+type = "icefish/phone-connect:bar"
+
+[widget.battery]
+display_mode = "graphic"
+hide_when_plugged = true
+
+[widget.clock]
+capsule = true
+capsule_border = "primary"
+capsule_fill = "on_secondary"
+capsule_foreground = "on_surface"
+capsule_opacity = 0.12
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 400
+format = """{:%H:%M}
+{:%d/%m/%y}"""
+icon_color = "on_secondary"
+tooltip_format = "{:%A, %B %d, %Y}"
+vertical_format = """{:%H
+%M}"""
+
+[widget.clock-12h]
+enabled = true
+format = "{:%-I:%M %p}"
+type = "clock"
+
+[widget.clock-seconds]
+format = "{:%H:%M:%S}"
+type = "clock"
+vertical_format = """{:%H
+%M
+%S}"""
+
+[widget.launcher]
+capsule_border = "outline"
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
+capsule_opacity = 0.88
+color = "on_surface"
+custom_image = "/usr/share/icons/cachyos.svg"
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 700
+glyph = "noctalia"
+icon_color = "primary"
+
+[widget.mail_2]
+type = "wetw3rx/divingcrush-mail:mail"
+
+[widget.media]
+art_size = 29
+hide_when_no_media = true
+icon_color = "#FBF7F6"
+max_length = 300
+title_scroll = "always"
+
+[widget.network]
+icon_color = "secondary"
+
+[widget.network_rx]
+enabled = false
+
+[widget.network_tx]
+enabled = false
+
+[widget.notifications]
+capsule_border = "outline"
+capsule_fill = "surface_variant"
+capsule_foreground = "on_surface"
+capsule_opacity = 0.88
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 600
+icon_color = "primary"
+
+[widget.spacer_10]
+type = "spacer"
+
+[widget.spacer_2]
+type = "spacer"
+
+[widget.spacer_3]
+type = "spacer"
+
+[widget.spacer_4]
+type = "spacer"
+
+[widget.spacer_5]
+type = "spacer"
+
+[widget.spacer_6]
+type = "spacer"
+
+[widget.spacer_7]
+type = "spacer"
+
+[widget.spacer_8]
+type = "spacer"
+
+[widget.sysmon]
+capsule_border = "outline"
+capsule_fill = "surface_variant"
+color = "on_surface"
+font_family = "JetBrainsMono Nerd Font"
+font_weight = 600
+icon_color = "secondary"
+stat = "gpu_vram"
+
+[widget.volume]
+color = "#FEFBFB"
+icon_color = "#FBFAFC"
+
+[widget.workspaces]
+capsule_border = "outline"
+capsule_fill = "surface_variant"
+color = "on_surface"
+icon_color = "primary"

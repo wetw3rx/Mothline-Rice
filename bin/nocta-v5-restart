@@ -1,8 +1,38 @@
 #!/usr/bin/env bash
 
+set -u
+
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/noctalia"
+log="$state_dir/restart.log"
+mkdir -p "$state_dir"
+
 pkill -x noctalia 2>/dev/null || true
 sleep 1
 
-nohup noctalia \
-  >"${XDG_STATE_HOME:-$HOME/.local/state}/noctalia/restart.log" \
-  2>&1 </dev/null &
+socket="${NIRI_SOCKET:-}"
+if [[ -z "$socket" ]] && command -v systemctl >/dev/null 2>&1; then
+    socket=$(
+        systemctl --user show-environment 2>/dev/null |
+            sed -n "s/^NIRI_SOCKET=//p" |
+            head -n 1
+    )
+fi
+
+if [[ -n "$socket" && -S "$socket" ]] &&
+   command -v niri >/dev/null 2>&1; then
+    {
+        printf "[%s] Restarting Noctalia through Niri socket: %s\n" \
+            "$(date --iso-8601=seconds)" "$socket"
+        NIRI_SOCKET="$socket" niri msg action spawn -- noctalia --daemon
+    } >>"$log" 2>&1
+    exit $?
+fi
+
+if [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+    printf "[%s] Restarting through current Wayland session\n" \
+        "$(date --iso-8601=seconds)" >>"$log"
+    nohup noctalia --daemon >>"$log" 2>&1 </dev/null &
+    exit 0
+fi
+
+printf "[%s] ERROR: no usable Niri socket or Wayland display\n" \

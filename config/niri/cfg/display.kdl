@@ -1,24 +1,9 @@
-// ────────────── Output Configuration ──────────────
-// You can run `niri msg outputs` to get the correct name for your displays.
-// You will have to remove "/-" and edit it before it takes effect.
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+// Portable display template.
+// Run `niri msg outputs`, then copy an appropriate machine profile
+// or define output geometry locally.
 
-/- output "DP-1" {
-    mode "2560x1440@359.979"
-    scale 1
-}
-
-// External Monitor (Forces it to take window/workspace focus on startup)
-output "HDMI-A-1" { // Replace with your external monitor name
-    mode "1920x1080@60.000" // Set your native resolution and refresh rate
+/- output "eDP-1" {
+    mode "1920x1080@60.000"
     scale 1
     position x=0 y=0
-    focus-at-startup
-}
-
-// Built-in Laptop Display (Positioned to the right of the primary workspace)
-output "eDP-1" { // Replace with your laptop display name
-    mode "2560x1600@240.000"
-    scale 1
-    position x=2560 y=0 // Offset X by the logical width of the primary monitor
 }

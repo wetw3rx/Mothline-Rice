@@ -16,24 +16,13 @@ spawn-at-startup "kdeconnect-indicator"
 
 // Retain Noctalia's generated/fallback colors, then override them with
 // the stable Mothline compositor palette.
-include "noctalia.kdl"
 include "mothline.kdl"
 
 input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "HDMI-A-1" {
-    mode "1920x1080@60.000"
-    scale 1
-    position x=0 y=1080
-}
 
-/- output "eDP-1" {
-    mode "2560x1600@240.000"
-    scale 1
-    position x=1080 y=3550
-}
 
 window-rule {
     match app-id="^fastfetch-popup$"
@@ -80,3 +69,7 @@ binds {
 include "mothline-notifications.kdl"
 
 include "mothline-launcher.kdl"
+
+
+
+include "noctalia.kdl"

@@ -28,8 +28,20 @@ for name in startpage mothline mothline-sddm; do
     fi
 done
 
-if [[ -f "$backup_dir/local-bin/fastfetch-popup" ]]; then
-    cp -a "$backup_dir/local-bin/fastfetch-popup" "$HOME/.local/bin/fastfetch-popup"
+for name in fastfetch-popup nocta-v5-restart mothline-check-update; do
+    if [[ -f "$backup_dir/local-bin/$name" ]]; then
+        cp -a "$backup_dir/local-bin/$name" "$HOME/.local/bin/$name"
+    else
+        rm -f -- "$HOME/.local/bin/$name"
+    fi
+done
+
+mkdir -p "$HOME/.local/share/applications"
+if [[ -f "$backup_dir/local-share/applications/nv5restart.desktop" ]]; then
+    cp -a "$backup_dir/local-share/applications/nv5restart.desktop" \
+        "$HOME/.local/share/applications/nv5restart.desktop"
+else
+    rm -f -- "$HOME/.local/share/applications/nv5restart.desktop"
 fi
 
 if command -v niri >/dev/null 2>&1; then

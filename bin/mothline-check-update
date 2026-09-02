@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -u
+
+repo="${MOTHLINE_REPO:-$HOME/Projects/mothline-rice}"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/mothline-update"
+seen_file="$state_dir/last-notified-main"
+
+notify() {
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send --app-name=Mothline --icon=system-software-update "$@" || true
+    fi
+}
+
+if ! git -C "$repo" rev-parse --git-dir >/dev/null 2>&1; then
+    notify --urgency=critical "Mothline update check failed" "Repository not found: $repo"
+    exit 1
+fi
+
+if ! git -C "$repo" fetch --quiet --prune origin main; then
+    notify --urgency=critical "Mothline update check failed" "Could not fetch origin/main."
+    exit 1
+fi
+
+local_sha=$(git -C "$repo" rev-parse main)
+remote_sha=$(git -C "$repo" rev-parse origin/main)
+
+if [[ "$local_sha" == "$remote_sha" ]]; then
+    rm -f -- "$seen_file"
+    exit 0
+fi
+
+if ! git -C "$repo" merge-base --is-ancestor main origin/main; then
+    notify --urgency=critical "Mothline update needs review" "Local main and origin/main have diverged."
+    exit 2
+fi
+
+mkdir -p "$state_dir"
+last_seen=""
+[[ -f "$seen_file" ]] && read -r last_seen < "$seen_file"
+
+if [[ "$last_seen" != "$remote_sha" ]]; then
+    behind=$(git -C "$repo" rev-list --count main..origin/main)
+    notify "Mothline update available" "$behind new main-branch commit(s). Open the repository and fast-forward main when ready."
+    printf '%s\n' "$remote_sha" > "$seen_file"
+fi
