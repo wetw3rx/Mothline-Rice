@@ -63,8 +63,14 @@ Clone the repository and run the Zsh installer:
 
 ```zsh
 git clone https://github.com/wetw3rx/Mothline-Rice.git
-cd mothline-rice
+cd Mothline-Rice
 ./install.zsh
+```
+
+For the tested ThinkPad T480 configuration, apply the COVENANT machine profile:
+
+```zsh
+./install.zsh --profile covenant
 ```
 
 The installer backs up existing Niri, Noctalia, GTK, Qt6ct, Kitty,
@@ -75,7 +81,12 @@ Mothline asset directories beneath:
 ~/.local/state/mothline-backups/
 ```
 
-It runs `niri validate` after installation when Niri is available.
+Machine profiles are applied after the portable common configuration. The
+installer expands `@HOME@` only in the installed copy and runs `niri validate`
+when Niri is available.
+
+The installed `mothline-check-update` helper fetches `origin/main` and notifies
+when a fast-forward update exists. It never modifies the working tree.
 
 ## Personalize before daily use
 
@@ -111,6 +122,7 @@ It runs `niri validate` after installation when Niri is available.
 
 Additional guides are available in `docs/`:
 
+- `COVENANT-Profile.md` — tested T480 profile, safety policy, and rollback
 - `Noctalia-v5-Recovery.md` — stuck-toast recovery and **Nocta v5 Restart** launcher
 
 - `Mothline_3-2-1_Backup_Guide.pdf`
